@@ -1,0 +1,41 @@
+<mat-toolbar color="primary">
+    <img src="../../../assets/images/logoNav.png" alt="">
+    <div>
+      <a mat-button [routerLink]="'/home'"> Home </a>
+      <a mat-button [routerLink]="'/about-us'"> About Us </a>
+      <a mat-button [routerLink]="'/products'"> Products </a>
+      <a mat-button [routerLink]="'/customers'"> Customers </a>
+      <a mat-button [routerLink]="'/distributors'"> Distributors </a>
+      <a mat-button [routerLink]="'/contact'"> Contact </a>
+    </div>
+    <span class="menu-spacer"></span>
+    <div>
+        <form>
+            <mat-form-field>
+                <span matPrefix> </span>
+                <input type="tel" matInput placeholder="Search" name= "search">
+                <button matSuffix mat-button><mat-icon >search</mat-icon></button>
+            </mat-form-field>
+        </form>
+    </div>  
+    <span class="menu-spacer"></span>
+    <div class="example-button-row">
+        <div class="example-flex-container">
+          <button mat-icon-button>
+            <mat-icon>facebook</mat-icon>
+          </button>
+          <button mat-icon-button>
+            <mat-icon svgIcon="instagram"></mat-icon>
+          </button>
+          <button mat-icon-button>
+            <mat-icon svgIcon="twitter"></mat-icon>
+          </button>
+          <button mat-icon-button>
+            <mat-icon svgIcon="linkedin"></mat-icon>
+          </button>
+          <button mat-icon-button>
+            <mat-icon svgIcon="otro"></mat-icon>
+          </button>
+        </div>
+    </div>
+</mat-toolbar>

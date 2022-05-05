@@ -1,0 +1,35 @@
+<div class="cardContainer">
+    <div class="cardItemsContainer">
+      <div class="cardContentContainer">
+        <h3 class="titleCard">{{ product.prodName }}</h3>
+        <p>
+          Brand <span class="descriptionCard">{{ product.brand }}</span>
+        </p>
+        <p>
+          Country <span class="descriptionCard">{{ product.country }}</span>
+        </p>
+        <p>
+          Region <span class="descriptionCard">{{ product.region }}</span>
+        </p>
+        <p>
+          Size <span class="descriptionCard">{{ product.size }}</span>
+        </p>
+        <p>
+          Type <span class="descriptionCard">{{ product.proType }}</span>
+        </p>
+        <p>
+          Variety <span class="descriptionCard">{{ product.variety }}</span>
+        </p>
+        <p>
+          Rating <span class="descriptionCard">{{ product.rating }}</span>
+        </p>
+      </div>
+      <div class="cardImageContainer">
+        <img
+          class="imageCard"
+          src="{{ product.imagen }}"
+          alt="Image not found"
+        />
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,13 @@
+img {
+    position: relative;
+    width: 100%;
+    height: 200px;
+}
+.chipList{
+    position: absolute;
+    left: 50%; 
+    transform: translate(-50%, 0);   
+    top: 225px;
+    display: flex;
+    gap: 10px;
+}

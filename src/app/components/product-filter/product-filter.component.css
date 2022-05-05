@@ -1,0 +1,17 @@
+h4 {
+    margin: 5px;
+}
+.filter {
+    padding: 10px;
+}
+
+mat-form-field.mat-form-field {
+    width:300px;
+}
+
+ .filterBotons {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+ }
