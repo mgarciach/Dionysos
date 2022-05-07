@@ -12,3 +12,22 @@ export interface Product {
     imagen: string;
     filtro: string;
 }
+
+export interface Brand {
+    prodBrand: number;
+    brand: string;
+}
+export interface Country{
+    codigoTabla: number;
+    valor: string;
+}
+
+export interface Producer{
+    prsupplier: number;
+    producer: string;
+}
+
+export interface Region {
+    country: number;
+    region: string;
+}

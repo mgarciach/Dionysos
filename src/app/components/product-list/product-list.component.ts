@@ -15,10 +15,22 @@ export class ProductListComponent implements OnInit {
 
   public products: Product[] = [];
 
-  constructor(
-    private productService: ProductService,
-    private filterService: FilterService
-  ) {
+  constructor(private productService: ProductService,private filterService: FilterService) {   }
+
+  public getProducts(requestBody: RequestBodyProduct): void {
+    this.productService
+      .getProducts(requestBody)
+      .subscribe((response: ResponseBody) => {
+        this.products = response.data;
+      });
+  }
+
+  ngOnInit(): void {
+
+    let requestBody: RequestBodyProduct = new RequestBodyProduct(0, 0, 0, 0, 0, 0, 'string');
+    this.getProducts(requestBody);
+    
+    //cambio de filtro
     this.filterService.dataReceived$.subscribe((data) => {
       if (data instanceof RequestBodyProduct) {
         this.getProducts(data);
@@ -31,19 +43,6 @@ export class ProductListComponent implements OnInit {
         });
       }
     });
-  }
-
-  public getProducts(requestBody: RequestBodyProduct): void {
-    this.productService
-      .getProducts(requestBody)
-      .subscribe((response: ResponseBody) => {
-        this.products = response.data;
-      });
-  }
-
-  ngOnInit(): void {
-    let requestBody: RequestBodyProduct = new RequestBodyProduct(0, 0, 0, 0, 0, 0, 'string');
-    this.getProducts(requestBody);
   }
 
 }

@@ -13,8 +13,13 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AppMaterialModule } from './app-material/app-material.module';
 import { SectionComponent } from './components/section/section.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomePageComponent } from './pages/home-page/home-page.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { CustomerPageComponent } from './pages/customer-page/customer-page.component';
+import { CustomerFilterComponent } from './components/customer-filter/customer-filter.component';
+import { CustomerItemComponent } from './components/customer-item/customer-item.component';
+import { CustomerListComponent } from './components/customer-list/customer-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +31,11 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
     FooterComponent,
     SectionComponent,
     HomePageComponent,
+    LoginPageComponent,
+    CustomerPageComponent,
+    CustomerFilterComponent,
+    CustomerItemComponent,
+    CustomerListComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +44,8 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
     BrowserAnimationsModule,
     FlexLayoutModule,
     AppMaterialModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

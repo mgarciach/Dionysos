@@ -1,12 +1,11 @@
 :host{
     padding-left: 50px;
-    font-family: "Montserrat",sans-serif;
     display: flex;
     background-color: #070c16;
 }
 img{
     width: 200px;
-    height: auto;
+    height: 52px;
     margin-right: 10px;
 }
 p {

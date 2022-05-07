@@ -1,16 +1,7 @@
-<img src="../../../assets/images/sectionImage.jpg" alt="" />
+<img src="http://test.solarc.pe/imagenes/weblink4.jpg" alt="" />
 <div class="chipList">
-  <mat-chip-list  >
-    <mat-chip> Wine </mat-chip>
-  </mat-chip-list>
-  <mat-chip-list  >
-    <mat-chip> Liquor </mat-chip>
-  </mat-chip-list>
-  <mat-chip-list  >
-    <mat-chip> Beer </mat-chip>
-  </mat-chip-list>
-  <mat-chip-list  >
-    <mat-chip> Foods </mat-chip>
+  <mat-chip-list *ngFor="let submenu of submenus">
+    <mat-chip> {{submenu}} </mat-chip>
   </mat-chip-list>
 </div>
 

@@ -11,7 +11,7 @@
     <span class="menu-spacer"></span>
     <div>
         <form>
-            <mat-form-field>
+            <mat-form-field color="accent">
                 <span matPrefix> </span>
                 <input type="tel" matInput placeholder="Search" name= "search">
                 <button matSuffix mat-button><mat-icon >search</mat-icon></button>
@@ -35,6 +35,12 @@
           </button>
           <button mat-icon-button>
             <mat-icon svgIcon="otro"></mat-icon>
+          </button>          
+          <button mat-icon-button *ngIf="!idCustomer"class="loginout" [routerLink]="'/login'">
+            <mat-icon>login</mat-icon>
+          </button>
+          <button mat-icon-button *ngIf="idCustomer" class="loginout" (click)="logout()">
+            <mat-icon>logout</mat-icon>
           </button>
         </div>
     </div>

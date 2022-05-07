@@ -7,6 +7,7 @@ import { RequestBodyProduct } from 'src/app/model/requestBodyProduct';
   styleUrls: ['./product-page.component.css']
 })
 export class ProductPageComponent implements OnInit {
+  submenusProduct = [ 'Wine', 'Liquor', 'Beer', 'Foods' ];
   parentFilterSelects!:RequestBodyProduct;
   parentFilterText!:string;
   constructor() { }
