@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home-page',
@@ -7,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  imgNumber: number = 1;
-  interval: any;
+  private imgServerUrl = environment.imgUrl;
+  firstImgUrl = this.imgServerUrl + `/weblink1.jpg`;
+
+  private imgNumber: number = 1;
+  private interval: any;
   constructor() {}
 
   ngOnInit(): void {
@@ -17,7 +21,7 @@ export class HomePageComponent implements OnInit {
       if (this.imgNumber > 3) {
         this.imgNumber = 1;
       }
-      (<HTMLImageElement>document.getElementById('img-slider')).src= `http://test.solarc.pe/imagenes/weblink${this.imgNumber}.jpg`;
+      (<HTMLImageElement>document.getElementById('img-slider')).src= this.imgServerUrl + `/weblink${this.imgNumber}.jpg`;
     }, 5000);
   }
 

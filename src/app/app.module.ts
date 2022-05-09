@@ -20,6 +20,10 @@ import { CustomerPageComponent } from './pages/customer-page/customer-page.compo
 import { CustomerFilterComponent } from './components/customer-filter/customer-filter.component';
 import { CustomerItemComponent } from './components/customer-item/customer-item.component';
 import { CustomerListComponent } from './components/customer-list/customer-list.component';
+import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
+import { HistoryPageComponent } from './pages/history-page/history-page.component';
+import { AccountPayablesPageComponent } from './pages/account-payables-page/account-payables-page.component';
+import { CustomerHomePageComponent } from './pages/customer-home-page/customer-home-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +39,11 @@ import { CustomerListComponent } from './components/customer-list/customer-list.
     CustomerPageComponent,
     CustomerFilterComponent,
     CustomerItemComponent,
-    CustomerListComponent
+    CustomerListComponent,
+    ProfilePageComponent,
+    HistoryPageComponent,
+    AccountPayablesPageComponent,
+    CustomerHomePageComponent
   ],
   imports: [
     BrowserModule,

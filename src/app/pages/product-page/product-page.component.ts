@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RequestBodyProduct } from 'src/app/model/requestBodyProduct';
+import { SubMenu } from 'src/app/model/subMenu';
 
 @Component({
   selector: 'app-product-page',
@@ -7,7 +8,20 @@ import { RequestBodyProduct } from 'src/app/model/requestBodyProduct';
   styleUrls: ['./product-page.component.css']
 })
 export class ProductPageComponent implements OnInit {
-  submenusProduct = [ 'Wine', 'Liquor', 'Beer', 'Foods' ];
+  submenusProduct: SubMenu []= [{
+    name: 'Wine',
+    url: '',
+  }, {
+    name: 'Liquor',
+    url: '',
+  },{
+    name: 'Beer',
+    url: '',
+  },{
+    name: 'Foods',
+    url: '',
+  }];
+  
   parentFilterSelects!:RequestBodyProduct;
   parentFilterText!:string;
   constructor() { }

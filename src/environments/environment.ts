@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://test.solarc.pe/api'
+  apiUrl: 'http://test.solarc.pe/api',
+  imgUrl: 'http://test.solarc.pe/imagenes'
 };
 
 /*

@@ -1,7 +1,7 @@
-<img src="http://test.solarc.pe/imagenes/weblink4.jpg" alt="" />
-<div class="chipList">
+<img src="{{imgUrl}}" alt="" />
+<div *ngIf="idCustomer" class="chipList">
   <mat-chip-list *ngFor="let submenu of submenus">
-    <mat-chip> {{submenu}} </mat-chip>
+    <mat-chip [routerLink]="[submenu.url]"> {{submenu.name}}</mat-chip>
   </mat-chip-list>
 </div>
 
