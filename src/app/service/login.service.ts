@@ -10,7 +10,7 @@ import { ResponseBody } from '../model/responseBody';
 export class LoginService {
 
   private apiServerUrl = environment.apiUrl;
-  idCustomer: string = '';
+  idCustomer!: string ;
 
   //idCustomerChanged = new Subject<string>();
   private idCustomer$ = new BehaviorSubject<any>({});

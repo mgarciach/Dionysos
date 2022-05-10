@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/service/login.service';
 
@@ -15,8 +15,8 @@ export class LoginPageComponent implements OnInit {
   error!: string;
   form: FormGroup = new FormGroup({
     idLocal: new FormControl(2),
-    userId: new FormControl(''),
-    userPass: new FormControl(''),
+    userId: new FormControl('',[Validators.required]),
+    userPass: new FormControl('',[Validators.required]),
   });
 
   submit() {

@@ -1,8 +1,14 @@
 <img src="{{imgUrl}}" alt="" />
-<div *ngIf="idCustomer" class="chipList">
+<div *ngIf="isCustomerPage && idCustomer" class="chipList">
   <mat-chip-list *ngFor="let submenu of submenus">
-    <mat-chip [routerLink]="[submenu.url]"> {{submenu.name}}</mat-chip>
+    <mat-chip [routerLink]="[submenu.url, idCustomer]"> {{submenu.name}}</mat-chip>
   </mat-chip-list>
 </div>
+<div *ngIf="!isCustomerPage" class="chipList">
+  <mat-chip-list *ngFor="let submenu of submenus">
+    <mat-chip [routerLink]="['/product', submenu.id]"> {{submenu.name}}</mat-chip>
+  </mat-chip-list>
+</div>
+
 
 

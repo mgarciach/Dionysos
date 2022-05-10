@@ -8,15 +8,18 @@ import { FilterService } from 'src/app/service/filter.service';
 @Component({
   selector: 'app-customer-list',
   templateUrl: './customer-list.component.html',
-  styleUrls: ['./customer-list.component.css']
+  styleUrls: ['./customer-list.component.css'],
 })
 export class CustomerListComponent implements OnInit {
+  customers: Customer[] = [];
+  customersTemp: Customer[] = [];
 
-  public customers: Customer[] = [];
+  constructor(
+    private customerService: CustomerService,
+    private filterService: FilterService
+  ) {}
 
-  constructor(private customerService: CustomerService,private filterService: FilterService) { }
-
-  public getCustomers(requestBody: RequestBodyCustomer): void {
+  getCustomers(requestBody: RequestBodyCustomer): void {
     this.customerService
       .getCustomers(requestBody)
       .subscribe((response: ResponseBody) => {
@@ -34,13 +37,15 @@ export class CustomerListComponent implements OnInit {
         this.getCustomers(data);
       }
       if (typeof data === 'string') {
-        this.customers = this.customers.filter((customer: Customer) => {
-          return customer.custname
-            .toLowerCase()
-            .includes(data);
-        });
+        if (data == '') {
+          this.customers = this.customersTemp;
+        } else {
+          this.customersTemp = this.customers;
+          this.customers = this.customers.filter((customer: Customer) => {
+            return customer.custname.toLowerCase().includes(data);
+          });
+        }
       }
     });
   }
-
 }

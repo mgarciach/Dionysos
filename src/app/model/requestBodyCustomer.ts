@@ -5,3 +5,7 @@ export class RequestBodyCustomer {
     public country: number = 0
   ) {}
 }
+
+export class RequestBodyIdCustomer {
+  constructor(public idCustomer: number = 0) {}
+}

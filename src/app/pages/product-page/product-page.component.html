@@ -1,9 +1,9 @@
-<app-section [submenus] = 'submenusProduct'></app-section>
+<app-section [submenus] = 'submenusProduct' [isCustomerPage]="false"></app-section>
 <div class="container">
     <div fxLayout.gt-sm="row" fxLayout.lt-md="column">
-        <app-product-filter fxFlex.gt-sm="25%" fxFlex.lt-md="25%" fxLayoutAlign="center none">
+        <app-product-filter [prodClass]='prodClass' fxFlex.gt-sm="25%" fxFlex.lt-md="25%" fxLayoutAlign="center none">
         </app-product-filter>
-        <app-product-list fxFlex.gt-sm="75%" fxFlex.lt-md="75%" fxLayoutAlign="center none">
+        <app-product-list [prodClass]='prodClass' fxFlex.gt-sm="75%" fxFlex.lt-md="75%" fxLayoutAlign="center none">
         </app-product-list>
     </div>
 </div>

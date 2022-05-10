@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ProductListComponent } from './components/product-list/product-list.component';
 import { AccountPayablesPageComponent } from './pages/account-payables-page/account-payables-page.component';
 import { CustomerHomePageComponent } from './pages/customer-home-page/customer-home-page.component';
 import { CustomerPageComponent } from './pages/customer-page/customer-page.component';
@@ -15,13 +16,17 @@ const routes: Routes = [
     component: ProductPageComponent,
   },
   {
+    path: 'product/:prodClass',
+    component: ProductPageComponent,
+  },
+  {
     path: 'customer',
     component: CustomerPageComponent,
     children: [
       {path: 'home', component: CustomerHomePageComponent},
-      {path: 'profile', component: ProfilePageComponent},
-      {path: 'history', component: HistoryPageComponent},
-      {path: 'account-payables', component: AccountPayablesPageComponent},
+      {path: 'profile/:idCustomer', component: ProfilePageComponent},
+      {path: 'history/:idCustomer', component: HistoryPageComponent},
+      {path: 'account-payables/:idCustomer', component: AccountPayablesPageComponent},
       {path: '', redirectTo: 'home', pathMatch: 'full'}
     ]
   },

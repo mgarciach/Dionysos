@@ -24,6 +24,8 @@ import { ProfilePageComponent } from './pages/profile-page/profile-page.componen
 import { HistoryPageComponent } from './pages/history-page/history-page.component';
 import { AccountPayablesPageComponent } from './pages/account-payables-page/account-payables-page.component';
 import { CustomerHomePageComponent } from './pages/customer-home-page/customer-home-page.component';
+import { HistoryItemComponent } from './components/history-item/history-item.component';
+import { AccountPayablesItemComponent } from './components/account-payables-item/account-payables-item.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +45,9 @@ import { CustomerHomePageComponent } from './pages/customer-home-page/customer-h
     ProfilePageComponent,
     HistoryPageComponent,
     AccountPayablesPageComponent,
-    CustomerHomePageComponent
+    CustomerHomePageComponent,
+    HistoryItemComponent,
+    AccountPayablesItemComponent
   ],
   imports: [
     BrowserModule,

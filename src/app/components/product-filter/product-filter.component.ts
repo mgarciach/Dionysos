@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Brand, Country, Producer, Region } from 'src/app/model/product';
 import { RequestBodyProduct } from 'src/app/model/requestBodyProduct';
 import { ResponseBody } from 'src/app/model/responseBody';
@@ -20,6 +20,7 @@ export class ProductFilterComponent implements OnInit {
   countries: Country[] = [];
   producers: Producer[] = [];
   regions: Region[] = [];
+  @Input() prodClass!: number;
 
   constructor(private filterService: FilterService) {}
 
@@ -54,7 +55,7 @@ export class ProductFilterComponent implements OnInit {
       this.selectedRegion = 'string';
     } 
     let data: RequestBodyProduct = new RequestBodyProduct(
-      0,
+      this.prodClass,
       this.selectedCountryId,
       0,
       0,

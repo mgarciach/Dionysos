@@ -1,6 +1,6 @@
 .example-card {
     width: 400px;
-    height: 280px;
+    height: 250px;
     margin: 5px;
 }
 span {
@@ -17,4 +17,8 @@ img {
 
 mat-card-title {
     max-width: 300px;
+}
+
+mat-card-title {
+    font-size: 1.2em;
 }

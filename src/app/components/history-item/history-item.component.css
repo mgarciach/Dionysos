@@ -1,11 +1,21 @@
 .example-card {
     width: 400px;
-    height: 190px;
+    height: 280px;
     margin: 5px;
 }
 span {
     font-weight: bold;
 }
+.content {
+    color:black;
+}
+
+img { 
+    width: 100px;
+    height: 150px;
+}
+
 mat-card-title {
+    max-width: 300px;
     font-size: 1.2em;
 }

@@ -1,0 +1,7 @@
+.container {
+    min-height: 600px;
+    margin: 15px auto;
+}
+.mat-form-field {
+    min-width: 200px;
+}

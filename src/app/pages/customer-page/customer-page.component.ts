@@ -9,7 +9,7 @@ import { LoginService } from 'src/app/service/login.service';
   styleUrls: ['./customer-page.component.css'],
 })
 export class CustomerPageComponent implements OnInit {
-  idCustomer: string = '';
+  
   submenusCustomer: SubMenu[] = [{
     name: 'Profile',
     url: '/customer/profile',
@@ -20,23 +20,12 @@ export class CustomerPageComponent implements OnInit {
     name: 'Account Payables',
     url: '/customer/account-payables',
   }];
-  subscription: Subscription;
 
-  constructor(private loginService: LoginService) {
-    this.subscription = this.loginService.newIdCustomer$.subscribe((idCustomer) => {
-      this.idCustomer = idCustomer;
-      console.log(this.idCustomer + ' from customer-page');
-    });
-  }
-  ngDoCheck() {
-    
+  constructor() {
+
   }
 
   ngOnInit(): void {
 
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
   }
 }

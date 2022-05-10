@@ -1,1 +1,1 @@
-<p>history-page works!</p>
+<app-history-item *ngFor="let history of customerHistories | slice:0:50" [history]="history"></app-history-item>

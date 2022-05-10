@@ -12,21 +12,24 @@ import { environment } from 'src/environments/environment';
 export class SectionComponent implements OnInit {
 
   imgUrl = environment.imgUrl + `/weblink4.jpg`;
-  idCustomer: string = '';
-  @Input() submenus!: SubMenu[];
+  idCustomer!: number ;
   subscription: Subscription;
+
+  @Input() submenus!: SubMenu[];
+  @Input() isCustomerPage!: boolean;
 
   constructor(private loginService: LoginService) {
     this.subscription = this.loginService.newIdCustomer$.subscribe((idCustomer) => {
-      this.idCustomer = idCustomer;
-      console.log(this.idCustomer + ' desde seccion-page');
+      if(typeof idCustomer === 'number') {
+        this.idCustomer = idCustomer;
+        console.log(this.idCustomer + ' desde seccion-page');
+      }    
     });
   }
 
   ngOnInit(): void {
 
   }
-
   
   ngOnDestroy() {
     // prevent memory leak when component destroyed
