@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
-import { SubMenu } from 'src/app/model/subMenu';
-import { LoginService } from 'src/app/service/login.service';
+import { SubPage } from 'src/app/model/subPage';
 
 @Component({
   selector: 'app-customer-page',
@@ -10,7 +8,7 @@ import { LoginService } from 'src/app/service/login.service';
 })
 export class CustomerPageComponent implements OnInit {
   
-  submenusCustomer: SubMenu[] = [{
+  subPagesCustomer: SubPage[] = [{
     name: 'Profile',
     url: '/customer/profile',
   }, {

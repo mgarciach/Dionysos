@@ -1,14 +1,21 @@
 <img src="{{imgUrl}}" alt="" />
-<div *ngIf="isCustomerPage && idCustomer" class="chipList">
-  <mat-chip-list *ngFor="let submenu of submenus">
-    <mat-chip [routerLink]="[submenu.url, idCustomer]"> {{submenu.name}}</mat-chip>
-  </mat-chip-list>
+<div class="option">
+  <div  fxLayout="column" >   
+    <h1>{{pageName}}</h1>
+    <h3>{{subPageName}} - {{pageName}}</h3>
+    <div *ngIf="isCustomerPage && idCustomer" fxLayout="row" fxLayoutGap="30px" class="listChip">
+      <mat-chip-list  *ngFor="let subPage of subPages">    
+        <mat-chip [routerLink]="[subPage.url, idCustomer]" (click)="changeSubPage(subPage.name)"> {{subPage.name}}</mat-chip>
+      </mat-chip-list>
+    </div>
+    <div *ngIf="!isCustomerPage" fxLayout="row" fxLayoutGap="30px" class="listChip">
+      <mat-chip-list  *ngFor="let subPage of subPages">    
+        <mat-chip [routerLink]="['/product', subPage.id]" (click)="changeSubPage(subPage.name)"> {{subPage.name}}</mat-chip>
+      </mat-chip-list>
+    </div>
+  </div>
 </div>
-<div *ngIf="!isCustomerPage" class="chipList">
-  <mat-chip-list *ngFor="let submenu of submenus">
-    <mat-chip [routerLink]="['/product', submenu.id]"> {{submenu.name}}</mat-chip>
-  </mat-chip-list>
-</div>
+
 
 
 

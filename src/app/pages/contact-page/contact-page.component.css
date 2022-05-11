@@ -1,0 +1,28 @@
+.container {
+    min-height: 600px;
+    margin: 10px auto;
+}
+
+.card {
+    max-width: 450px;
+    margin-bottom: 8px;
+}
+img {
+    margin-left: 10px;
+    height: 40%;
+}
+
+mat-card{
+    box-shadow: none !important;
+}
+
+mat-card-title{
+    margin-top: 15px;
+}
+
+mat-card-subtitle{
+    font-size: 15px;
+    color:black;
+}
+
+  

@@ -2,12 +2,23 @@ img {
     position: relative;
     width: 100%;
     height: 200px;
+    filter: brightness(0.5);
 }
-.chipList{
+
+h1, h3 {
+    text-align: center;
+    color: #fff;
+    font-family: "Segoe UI";
+    font-weight: 400;
+}
+
+.option{
     position: absolute;
-    left: 50%; 
-    transform: translate(-50%, 0);   
-    top: 225px;
-    display: flex;
-    gap: 10px;
+    top: 70px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 500px;
+}
+.listChip{
+    margin: 0 auto;
 }

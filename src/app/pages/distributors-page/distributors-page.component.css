@@ -1,0 +1,23 @@
+.container {
+    min-height: 600px;
+    margin: 50px auto;
+}
+.card {
+    width: 300px;
+    margin-bottom: 30px;
+}
+
+.header-image {
+    background-image: url('https://www.kindpng.com/picc/m/377-3779053_distribution-distribution-icon-png-transparent-png.png');
+    background-size: cover;
+}
+
+mat-card-subtitle{
+    font-size: 14px;
+}
+
+mat-card-content p{
+    font-size: medium;
+    margin: 10px;
+}
+  

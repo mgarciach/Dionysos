@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RequestBodyProduct } from 'src/app/model/requestBodyProduct';
-import { SubMenu } from 'src/app/model/subMenu';
+import { SubPage } from 'src/app/model/subPage';
 
 @Component({
   selector: 'app-product-page',
@@ -10,9 +10,9 @@ import { SubMenu } from 'src/app/model/subMenu';
 })
 export class ProductPageComponent implements OnInit {
 
-  prodClass: number = 0; 
+  prodClass!: number; 
 
-  submenusProduct: SubMenu []= [{
+  subPagesProduct: SubPage []= [{
     name: 'Wine',
     id: 4,
   }, {

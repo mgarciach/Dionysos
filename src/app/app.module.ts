@@ -26,6 +26,9 @@ import { AccountPayablesPageComponent } from './pages/account-payables-page/acco
 import { CustomerHomePageComponent } from './pages/customer-home-page/customer-home-page.component';
 import { HistoryItemComponent } from './components/history-item/history-item.component';
 import { AccountPayablesItemComponent } from './components/account-payables-item/account-payables-item.component';
+import { AboutusPageComponent } from './pages/aboutus-page/aboutus-page.component';
+import { DistributorsPageComponent } from './pages/distributors-page/distributors-page.component';
+import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +50,10 @@ import { AccountPayablesItemComponent } from './components/account-payables-item
     AccountPayablesPageComponent,
     CustomerHomePageComponent,
     HistoryItemComponent,
-    AccountPayablesItemComponent
+    AccountPayablesItemComponent,
+    AboutusPageComponent,
+    DistributorsPageComponent,
+    ContactPageComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { SubMenu } from 'src/app/model/subMenu';
+import { SubPage } from 'src/app/model/subPage';
 import { LoginService } from 'src/app/service/login.service';
 import { environment } from 'src/environments/environment';
 
@@ -14,8 +14,10 @@ export class SectionComponent implements OnInit {
   imgUrl = environment.imgUrl + `/weblink4.jpg`;
   idCustomer!: number ;
   subscription: Subscription;
+  subPageName: string = "Home";
 
-  @Input() submenus!: SubMenu[];
+  @Input() pageName!: string;
+  @Input() subPages!: SubPage[];
   @Input() isCustomerPage!: boolean;
 
   constructor(private loginService: LoginService) {
@@ -25,6 +27,10 @@ export class SectionComponent implements OnInit {
         console.log(this.idCustomer + ' desde seccion-page');
       }    
     });
+  }
+
+  changeSubPage(subPageName: string) {
+    this.subPageName = subPageName;
   }
 
   ngOnInit(): void {
