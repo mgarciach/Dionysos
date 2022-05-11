@@ -6,7 +6,7 @@ export interface Product {
     region: string;
     producer: string;
     size: string;
-    proType: string;
+    prodType: string;
     variety: string;
     rating: string;
     imagen: string;
