@@ -6,6 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 const MaterialComponents = [
   MatToolbarModule,
@@ -14,7 +15,8 @@ const MaterialComponents = [
   MatInputModule,
   MatChipsModule,
   MatSelectModule,
-  MatCardModule
+  MatCardModule,
+  MatExpansionModule
 ];
 
 @NgModule({
