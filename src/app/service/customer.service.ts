@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { RequestBodyCustomer, RequestBodyIdCustomer } from '../model/requestBodyCustomer';
+import { CustomerProfile } from '../model/customer';
+import { RequestBodyAccountHistoryByDates, RequestBodyCustomer, RequestBodyGetHistoryByDates, RequestBodyIdCustomer } from '../model/requestBodyCustomer';
 import { ResponseBody } from '../model/responseBody';
 
 @Injectable({
@@ -22,11 +23,15 @@ export class CustomerService {
     return this.http.post<ResponseBody>(`${this.apiServerUrl}/Customer/GetProFileCustomer`, requestBody);
   }
 
-  getHistoryCustomer(requestBody: RequestBodyIdCustomer): Observable<ResponseBody> {
-    return this.http.post<ResponseBody>(`${this.apiServerUrl}/Customer/GetHistoryCustomer`, requestBody);
+  updateProFileCustomer(requestBody: any): Observable<ResponseBody> {
+    return this.http.post<ResponseBody>(`${this.apiServerUrl}/Customer/UpdateCustomer`, requestBody);
   }
 
-  getAccountHistory(requestBody: RequestBodyIdCustomer): Observable<ResponseBody> {
-    return this.http.post<ResponseBody>(`${this.apiServerUrl}/Customer/GetAccountHistory`, requestBody);
+  getHistoryCustomer(requestBody: RequestBodyGetHistoryByDates): Observable<ResponseBody> {
+    return this.http.post<ResponseBody>(`${this.apiServerUrl}/Customer/GetHistoryByDates`, requestBody);
+  }
+
+  getAccountHistory(requestBody: RequestBodyAccountHistoryByDates): Observable<ResponseBody> {
+    return this.http.post<ResponseBody>(`${this.apiServerUrl}/Customer/GetAccountPayablesByDates`, requestBody);
   }
 }

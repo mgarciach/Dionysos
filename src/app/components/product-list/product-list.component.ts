@@ -30,7 +30,7 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit(): void {
     //cambio de filtro
-    this.filterService.dataReceived$.subscribe((data) => {
+    this.filterService.newFilterData$.subscribe((data) => {
       if (data instanceof RequestBodyProduct) {
         this.getProducts(data);
       }

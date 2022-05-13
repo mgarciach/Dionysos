@@ -1,4 +1,4 @@
-export interface Customer { 
+export interface Customer {
     idCustomer: number,
     custname: string,
     custaddr: string,
@@ -8,36 +8,37 @@ export interface Customer {
     custphone: string,
 }
 
-export interface CustomerProfile { 
+export interface CustomerProfile {
     idCustomer: number,
     custName: string,
     custAddr: string,
-    city: string,
     county: string,
-    state: string,
     custZip: string,
-    custType: string,
     custLicense: string,
     contact: string,
     custPhone: string,
     custWebSite: string,
     custEmail: string,
+    idCity: number,
+    idType: number,
+    idState: number
 }
-
-export interface CustomerHistory { 
-    invDate: string,
-    invNum: string,
+export interface CustomerHistory {
+    idCustomer: number,
+    custname: string,
     brand: string,
-    prodCode: string,
-    prodName: string,
-    invCsCst: number,
-    invNumCs: number,
-    invNumUn: number,
-    paidyn: boolean,
-    imagen: string
+    prodType: string,
+    year: number,
+    month: number,
+    cases: number,
+    units: number,
+    prodCode: number,
+    prodname: string,
+    invdate: string,
+    invcscst: number
 }
 
-export interface AccountHistory { 
+export interface AccountHistory {
     invNum: string,
     paidYn: boolean,
     invDate: string,

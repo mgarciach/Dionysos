@@ -10,7 +10,6 @@ import { FilterService } from 'src/app/service/filter.service';
   styleUrls: ['./product-filter.component.css'],
 })
 export class ProductFilterComponent implements OnInit {
-
   filterText!: string;
   selectedBrandId: number = 0;
   selectedCountryId: number = 0;
@@ -41,19 +40,19 @@ export class ProductFilterComponent implements OnInit {
     });
   }
 
-  onCountrySelect() {
-    this.selectedRegion = 'string';
+  getRegions(countryId: number): void {
     this.filterService
-      .getRegion(this.selectedCountryId)
+      .getRegion(countryId)
       .subscribe((response: ResponseBody) => {
         this.regions = response.data;
       });
   }
 
-  filterBySelects(isCountry: boolean) {
-    if (isCountry) {
-      this.selectedRegion = 'string';
-    } 
+  filterByText() {
+    this.filterService.broadcast(this.filterText);
+  }
+
+  filterBySelects() {
     let data: RequestBodyProduct = new RequestBodyProduct(
       this.prodClass,
       this.selectedCountryId,
@@ -63,11 +62,31 @@ export class ProductFilterComponent implements OnInit {
       this.selectedBrandId,
       this.selectedRegion
     );
-    this.filterService.broadcast(data); 
+    this.filterService.broadcast(data);
   }
 
-  filterByText() {
-    this.filterService.broadcast(this.filterText);
+  setBrandValue(brandId: number) {
+    this.selectedBrandId = brandId;
+    this.filterBySelects();
+  }
+
+  setCountryValue(countryId: number) {
+    if (countryId == 0) {
+      this.regions = [];
+    }
+    this.getRegions(countryId);
+    this.selectedCountryId = countryId;
+    this.filterBySelects();
+  }
+
+  setRegionValue(regionId: string) {
+    this.selectedRegion = regionId;
+    this.filterBySelects();
+  }
+
+  setProducerValue(producerId: number){
+    this.selectedProducerId = producerId;
+    this.filterBySelects();
   }
 
   ngOnInit(): void {

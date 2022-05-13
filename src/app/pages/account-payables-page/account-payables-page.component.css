@@ -1,4 +1,4 @@
-:host {
-    display: flex;
-    flex-wrap: wrap;
+table {
+  margin: 20px auto;
+  width: 95%;
 }

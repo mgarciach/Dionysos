@@ -1,0 +1,31 @@
+.container {
+  margin: 20px 0;
+}
+
+mat-card{
+  box-shadow: none !important;
+  width: 800px;
+}
+.space {
+  font-weight: bold;
+  width: 80px;
+  display: inline-block;
+}
+.content {
+  color:black;
+}
+
+.text {
+  color:black;
+  max-width: 500px;
+
+}
+
+.imgBrand {
+  margin: 15px 0;
+}
+
+p {
+  font-size: 15px;
+}
+

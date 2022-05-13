@@ -10,6 +10,7 @@ import { DistributorsPageComponent } from './pages/distributors-page/distributor
 import { HistoryPageComponent } from './pages/history-page/history-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { ProductDetailPageComponent } from './pages/product-detail-page/product-detail-page.component';
 import { ProductPageComponent } from './pages/product-page/product-page.component';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 
@@ -28,6 +29,10 @@ const routes: Routes = [
     component: ProductPageComponent,
   },
   {
+    path: 'product-detail',
+    component: ProductDetailPageComponent,
+  },
+  {
     path: 'about-us',
     component: AboutusPageComponent,
   },
@@ -44,9 +49,9 @@ const routes: Routes = [
     component: CustomerPageComponent,
     children: [
       {path: 'home', component: CustomerHomePageComponent},
-      {path: 'profile/:idCustomer', component: ProfilePageComponent},
-      {path: 'history/:idCustomer', component: HistoryPageComponent},
-      {path: 'account-payables/:idCustomer', component: AccountPayablesPageComponent},
+      {path: 'profile', component: ProfilePageComponent},
+      {path: 'history', component: HistoryPageComponent},
+      {path: 'account-payables', component: AccountPayablesPageComponent},
       {path: '', redirectTo: 'home', pathMatch: 'full'}
     ]
   },

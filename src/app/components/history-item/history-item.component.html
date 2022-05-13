@@ -1,17 +1,10 @@
 <mat-card class="example-card">
     <mat-card-title-group>
-      <mat-card-title>{{ history.prodName }}</mat-card-title>
-      <mat-card-subtitle>{{ history.brand }}</mat-card-subtitle>
-      <mat-card-subtitle class="content"><span>ProdCode  </span>{{ history.prodCode }}</mat-card-subtitle>
-      <mat-card-subtitle class="content"><span>InvDate </span>{{ history.invDate }}</mat-card-subtitle>
-      <mat-card-subtitle class="content"><span>InvNum </span>{{ history.invNum }}</mat-card-subtitle>
-      <mat-card-subtitle class="content"><span>InvNumCs </span>{{ history.invNumCs }}</mat-card-subtitle>
-      <mat-card-subtitle class="content"><span>InvNumUn </span>{{ history.invNumUn }}</mat-card-subtitle>
-      <mat-card-subtitle class="content"><span>InvCsCst </span>{{ history.invCsCst }}</mat-card-subtitle>
-      <mat-card-subtitle class="content"><span>Paidyn </span>{{ history.paidyn }}</mat-card-subtitle>
-      <img mat-card-lg-image src="{{ history.imagen }}" alt="Girl in a jacket">
+      <mat-card-title>{{ history.prodType }} {{history.brand}}</mat-card-title>
+      <mat-card-subtitle class="content"><span>Name:  </span>{{ history.prodname }}</mat-card-subtitle>
+      <mat-card-subtitle class="content">{{ history.invdate }}<span class="tab">Cases: </span>{{history.cases}}<span class="tab">Units: </span>{{history.units}}<span class="tab">Cscst: </span>{{history.invcscst}}</mat-card-subtitle>
     </mat-card-title-group>
   </mat-card>
-  
-  
-  
+
+
+

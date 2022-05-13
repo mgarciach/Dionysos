@@ -1,6 +1,6 @@
 .example-card {
     width: 400px;
-    height: 190px;
+    height: 150px;
     margin: 5px;
 }
 span {
@@ -8,4 +8,7 @@ span {
 }
 mat-card-title {
     font-size: 1.2em;
+}
+.tab {
+  margin-left: 20px;
 }

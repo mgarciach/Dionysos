@@ -1,3 +1,4 @@
-<app-product-item *ngFor="let product of products | slice:0:50" [product]="product"></app-product-item>
-
+<div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="start start">
+  <app-product-item *ngFor="let product of products | slice:0:50" [product]="product"></app-product-item>
+</div>
 

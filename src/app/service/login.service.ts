@@ -11,27 +11,33 @@ export class LoginService {
 
   private apiServerUrl = environment.apiUrl;
   idCustomer!: string ;
+  custNum!: string ;
 
-  //idCustomerChanged = new Subject<string>();
   private idCustomer$ = new BehaviorSubject<any>({});
   newIdCustomer$ = this.idCustomer$.asObservable();
-  
+
   constructor(private http: HttpClient) { }
 
   login(requestBody: any): Observable<ResponseBody> {
     return this.http.post<ResponseBody>(`${this.apiServerUrl}/Customer/GetCustomerLogin`, requestBody);
   }
 
-  addIdCustomer(idCustomer: string) {
+  setCustomer(idCustomer: string, custNum: string) {
     this.idCustomer = idCustomer;
+    this.custNum = custNum;
     this.idCustomer$.next(this.idCustomer);
   }
-  removeIdCustomer() {
+  removeCustomer() {
     this.idCustomer = '';
+    this.custNum = '';
     this.idCustomer$.next(this.idCustomer);
   }
 
   getIdCustomer() {
     return this.idCustomer;
+  }
+
+  getCustNum() {
+    return this.custNum;
   }
 }

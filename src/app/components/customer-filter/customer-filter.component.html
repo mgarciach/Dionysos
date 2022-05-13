@@ -7,34 +7,29 @@
     <mat-expansion-panel hideToggle>
         <mat-expansion-panel-header>
           <mat-panel-description>
+            State
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+          <button mat-flat-button (click)="setStateValue(0)">ALL</button>
+          <button mat-flat-button *ngFor="let state of states" (click)="setStateValue(state.codigoTabla, state.valor)">{{state.valor}}</button>
+    </mat-expansion-panel>
+    <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-description>
             City
           </mat-panel-description>
         </mat-expansion-panel-header>
-        <mat-option value=0>ALL</mat-option>
-        <mat-option *ngFor="let city of cities" [value]="city.codigoTabla">{{city.valor}}</mat-option>
+        <button mat-flat-button (click)="setCityValue(0)">ALL</button>
+        <button mat-flat-button *ngFor="let city of cities" (click)="setCityValue(city.codigoTabla)">{{city.valor}}</button>
     </mat-expansion-panel>
-    <h4>City</h4>
-    <mat-form-field appearance="fill">
-        <mat-label>Select an option</mat-label>
-        <mat-select [(value)]="selectedCityId" (valueChange)="filterBySelects()">
-            <mat-option value=0>ALL</mat-option>
-            <mat-option *ngFor="let city of cities" [value]="city.codigoTabla">{{city.valor}}</mat-option>
-        </mat-select>
-    </mat-form-field>
-    <h4>State</h4>
-    <mat-form-field appearance="fill">
-        <mat-label>Select an option</mat-label>
-        <mat-select [(value)]="selectedStateId" (valueChange)="filterBySelects()">
-            <mat-option value=0>ALL</mat-option>
-            <mat-option *ngFor="let state of states" [value]="state.codigoTabla">{{state.valor}}</mat-option>
-        </mat-select>
-    </mat-form-field>
-    <h4>Type</h4>
-    <mat-form-field appearance="fill">
-        <mat-label>Select an option</mat-label>
-        <mat-select [(value)]="selectedcustTypeId" (valueChange)="filterBySelects()">
-            <mat-option value=0>ALL</mat-option>
-            <mat-option *ngFor="let custType of custTypes" [value]="custType.codigoTabla">{{custType.valor}}</mat-option>
-        </mat-select>
-    </mat-form-field>
-</div>  
+    <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-description>
+            Type
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <button mat-flat-button (click)="setTypeValue(0)">ALL</button>
+        <button mat-flat-button *ngFor="let custType of custTypes" (click)="setTypeValue(custType.codigoTabla)">{{custType.valor}}</button>
+    </mat-expansion-panel>
+
+</div>

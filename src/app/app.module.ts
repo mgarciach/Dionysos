@@ -25,10 +25,10 @@ import { HistoryPageComponent } from './pages/history-page/history-page.componen
 import { AccountPayablesPageComponent } from './pages/account-payables-page/account-payables-page.component';
 import { CustomerHomePageComponent } from './pages/customer-home-page/customer-home-page.component';
 import { HistoryItemComponent } from './components/history-item/history-item.component';
-import { AccountPayablesItemComponent } from './components/account-payables-item/account-payables-item.component';
 import { AboutusPageComponent } from './pages/aboutus-page/aboutus-page.component';
 import { DistributorsPageComponent } from './pages/distributors-page/distributors-page.component';
 import { ContactPageComponent } from './pages/contact-page/contact-page.component';
+import { ProductDetailPageComponent } from './pages/product-detail-page/product-detail-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,10 +50,10 @@ import { ContactPageComponent } from './pages/contact-page/contact-page.componen
     AccountPayablesPageComponent,
     CustomerHomePageComponent,
     HistoryItemComponent,
-    AccountPayablesItemComponent,
     AboutusPageComponent,
     DistributorsPageComponent,
-    ContactPageComponent
+    ContactPageComponent,
+    ProductDetailPageComponent
   ],
   imports: [
     BrowserModule,

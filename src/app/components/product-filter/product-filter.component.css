@@ -5,13 +5,16 @@ h4 {
     padding: 10px;
 }
 
+button {
+  display: block;
+  height: 25px;
+}
+
 mat-form-field.mat-form-field {
     width:300px;
 }
 
- .filterBotons {
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
- }
+mat-panel-description{
+  color:black;
+  font-weight: 500;
+}

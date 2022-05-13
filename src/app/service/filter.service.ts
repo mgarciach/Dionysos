@@ -10,14 +10,12 @@ import { ResponseBody } from '../model/responseBody';
 export class FilterService {
   private apiServerUrl = environment.apiUrl;
 
-  //subject to trigger events
-  private mySubject: Subject<any> = new Subject<any>();
-  //observable to listen to events
-  readonly dataReceived$: Observable<any> = this.mySubject.asObservable();
+  private filterData = new Subject<any>();
+  newFilterData$ = this.filterData.asObservable();
 
   broadcast(data: any)
   {
-    this.mySubject.next(data);
+    this.filterData.next(data);
   }
 
   constructor(private http: HttpClient) { }
@@ -30,8 +28,8 @@ export class FilterService {
     return this.http.post<ResponseBody>(`${this.apiServerUrl}/Productos/GetParametros`, {"tabla": "COUNTRY"});
   }
 
-  getCities(): Observable<ResponseBody> {
-    return this.http.post<ResponseBody>(`${this.apiServerUrl}/Productos/GetParametros`, {"tabla": "city"});
+  getCities(state: string): Observable<ResponseBody> {
+    return this.http.post<ResponseBody>(`${this.apiServerUrl}/Productos/GetCities`, {"tabla": "city", "state": state});
   }
 
   getStates(): Observable<ResponseBody> {

@@ -9,3 +9,10 @@ export class RequestBodyProduct {
     public region: string = 'string'
   ) {}
 }
+
+export class RequestBodyProductDetail {
+  constructor(
+    public prodCode: string = ''
+  ) {}
+}
+

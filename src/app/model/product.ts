@@ -13,6 +13,12 @@ export interface Product {
     filtro: string;
 }
 
+export interface ProductDetails {
+  prodMemo: string;
+  memo:string;
+  brandPic: string;
+}
+
 export interface Brand {
     prodBrand: number;
     brand: string;
@@ -28,6 +34,6 @@ export interface Producer{
 }
 
 export interface Region {
-    country: number;
+    idCountry: number;
     region: string;
 }

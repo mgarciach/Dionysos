@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { City, CustType, State } from 'src/app/model/customer';
 import { RequestBodyCustomer } from 'src/app/model/requestBodyCustomer';
 import { ResponseBody } from 'src/app/model/responseBody';
@@ -7,12 +7,9 @@ import { FilterService } from 'src/app/service/filter.service';
 @Component({
   selector: 'app-customer-filter',
   templateUrl: './customer-filter.component.html',
-  styleUrls: ['./customer-filter.component.css']
+  styleUrls: ['./customer-filter.component.css'],
 })
 export class CustomerFilterComponent implements OnInit {
-
-
-  
   filterText!: string;
   selectedCityId: number = 0;
   selectedStateId: number = 0;
@@ -21,16 +18,17 @@ export class CustomerFilterComponent implements OnInit {
   states: State[] = [];
   custTypes: CustType[] = [];
 
-  constructor(private filterService: FilterService) { }
+  constructor(private filterService: FilterService) {}
 
-  getCities(): void {
-    this.filterService.getCities().subscribe((response: ResponseBody) => {
-      this.cities = response.data;
-    });
-  }
   getStates(): void {
     this.filterService.getStates().subscribe((response: ResponseBody) => {
       this.states = response.data;
+    });
+  }
+
+  getCities(state: string): void {
+    this.filterService.getCities(state).subscribe((response: ResponseBody) => {
+      this.cities = response.data;
     });
   }
 
@@ -39,6 +37,9 @@ export class CustomerFilterComponent implements OnInit {
       this.custTypes = response.data;
     });
   }
+  filterByText() {
+    this.filterService.broadcast(this.filterText);
+  }
 
   filterBySelects() {
     let data: RequestBodyCustomer = new RequestBodyCustomer(
@@ -46,15 +47,32 @@ export class CustomerFilterComponent implements OnInit {
       this.selectedCityId,
       this.selectedcustTypeId
     );
-    this.filterService.broadcast(data); 
+    console.log(data);
+    this.filterService.broadcast(data);
   }
 
-  filterByText() {
-    this.filterService.broadcast(this.filterText);
+  setStateValue(stateId: number, stateName?: string) {
+    if(stateId == 0 ) {
+      this.cities = [];
+    }
+    if(stateName) {
+      this.getCities(stateName);
+    }
+    this.selectedStateId = stateId;
+    this.filterBySelects();
+  }
+
+  setCityValue(cityId: number) {
+    this.selectedCityId = cityId;
+    this.filterBySelects();
+  }
+
+  setTypeValue(custTypeId: number) {
+    this.selectedcustTypeId = custTypeId;
+    this.filterBySelects();
   }
 
   ngOnInit(): void {
-    this.getCities();
     this.getStates();
     this.getCustTypes();
   }

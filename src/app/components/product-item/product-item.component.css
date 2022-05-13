@@ -5,12 +5,14 @@
 }
 span {
     font-weight: bold;
+    width: 80px;
+    display: inline-block;
 }
 .content {
     color:black;
 }
 
-img { 
+img {
     width: 100px;
     height: 150px;
 }
