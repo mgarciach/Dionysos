@@ -11,10 +11,10 @@ import { FilterService } from 'src/app/service/filter.service';
 })
 export class ProductFilterComponent implements OnInit {
   filterText!: string;
-  selectedBrandId: number = 0;
-  selectedCountryId: number = 0;
+  selectedBrandId: string = '0';
+  selectedCountryId: string = '0';
   selectedRegion: string = 'string';
-  selectedProducerId: number = 0;
+  selectedProducerId: string = '0';
   brands: Brand[] = [];
   countries: Country[] = [];
   producers: Producer[] = [];
@@ -52,44 +52,36 @@ export class ProductFilterComponent implements OnInit {
     this.filterService.broadcast(this.filterText);
   }
 
-  filterBySelects() {
+  filterBySelects(isCountry: boolean) {
+    if (isCountry) {
+      this.selectedRegion = 'string';
+    }
     let data: RequestBodyProduct = new RequestBodyProduct(
       this.prodClass,
-      this.selectedCountryId,
+      Number(this.selectedCountryId),
       0,
       0,
-      this.selectedProducerId,
-      this.selectedBrandId,
+      Number(this.selectedProducerId),
+      Number(this.selectedBrandId),
       this.selectedRegion
     );
     this.filterService.broadcast(data);
   }
 
-  setBrandValue(brandId: number) {
-    this.selectedBrandId = brandId;
-    this.filterBySelects();
-  }
-
-  setCountryValue(countryId: number) {
-    if (countryId == 0) {
-      this.regions = [];
-    }
-    this.getRegions(countryId);
-    this.selectedCountryId = countryId;
-    this.filterBySelects();
-  }
-
-  setRegionValue(regionId: string) {
-    this.selectedRegion = regionId;
-    this.filterBySelects();
-  }
-
-  setProducerValue(producerId: number){
-    this.selectedProducerId = producerId;
-    this.filterBySelects();
+  onCountrySelect() {
+    this.selectedRegion = 'string';
+    this.filterService
+      .getRegion(Number(this.selectedCountryId))
+      .subscribe((response: ResponseBody) => {
+        this.regions = response.data;
+      });
   }
 
   ngOnInit(): void {
+    console.log(this.selectedBrandId);
+    console.log(this.selectedCountryId);
+    console.log(this.selectedRegion);
+    console.log(this.selectedProducerId)
     this.getBrands();
     this.getCountries();
     this.getProducers();
