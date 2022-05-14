@@ -24,3 +24,11 @@ mat-card-title {
 mat-card-title {
     font-size: 1.2em;
 }
+
+.show{
+    display: block;
+}
+
+.hide{
+    display: none;
+}

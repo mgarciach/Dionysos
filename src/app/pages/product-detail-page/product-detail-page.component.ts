@@ -27,7 +27,6 @@ export class ProductDetailPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.product = this.productService.getProduct();
-    this.getProductDetails(new RequestBodyProductDetail('40801'));
-    console.log(this.productDetails);
+    this.getProductDetails(new RequestBodyProductDetail(this.product.prodCode.toString()));
   }
 }

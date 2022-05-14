@@ -1,11 +1,23 @@
 .container {
   margin: 20px 0;
 }
+mat-card-title{
+  font-size: 25px;
+}
 
 mat-card{
   box-shadow: none !important;
   width: 800px;
 }
+
+mat-card-content{
+  width: 100%;
+}
+
+.subtittle{
+  font-size: 20px;
+}
+
 .space {
   font-weight: bold;
   width: 80px;
@@ -23,6 +35,7 @@ mat-card{
 
 .imgBrand {
   margin: 15px 0;
+  width: 100%;
 }
 
 p {

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
-import { City, Customer, CustomerProfile, CustType, State } from 'src/app/model/customer';
+import { City, CustomerProfile, CustType, State } from 'src/app/model/customer';
 import { RequestBodyIdCustomer} from 'src/app/model/requestBodyCustomer';
 import { ResponseBody } from 'src/app/model/responseBody';
 import { CustomerService } from 'src/app/service/customer.service';

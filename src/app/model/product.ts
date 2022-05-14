@@ -11,6 +11,7 @@ export interface Product {
     rating: string;
     imagen: string;
     filtro: string;
+    visibility: string;
 }
 
 export interface ProductDetails {

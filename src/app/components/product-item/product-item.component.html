@@ -1,4 +1,4 @@
-<mat-card class="example-card" (click)="goToDetailPage(product)">
+<mat-card class="example-card  {{product.visibility}}" (click)="goToDetailPage(product)">
   <mat-card-title-group>
     <mat-card-title>{{ product.prodName }}</mat-card-title>
     <mat-card-subtitle>{{ product.brand }}</mat-card-subtitle>

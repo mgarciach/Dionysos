@@ -12,7 +12,6 @@ import { ProductService } from 'src/app/service/product.service';
 })
 export class ProductListComponent implements OnInit {
   products: Product[] = [];
-  productsTemp: Product[] = [];
   @Input() prodClass!: number;
 
   constructor(
@@ -35,14 +34,13 @@ export class ProductListComponent implements OnInit {
         this.getProducts(data);
       }
       if (typeof data === 'string') {
-        if (data == '') {
-          this.products = this.productsTemp;
-        } else {
-          this.productsTemp = this.products;
-          this.products = this.products.filter((product: Product) => {
-            return product.filtro.toLowerCase().includes(data);
-          });
-        }
+        this.products.forEach((product: Product) => {
+          if (product.filtro.toLowerCase().includes(data)) {
+            product.visibility = "show";
+          } else {
+            product.visibility = "hide";
+          }
+        });
       }
     });
   }
