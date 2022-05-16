@@ -1,3 +1,4 @@
-:host {
-  margin: 20px;
+.container {
+  min-height: 1000px;
+  margin-top: 10px;
 }

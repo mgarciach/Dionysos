@@ -10,7 +10,7 @@
     </div>
     <div *ngIf="!isCustomerPage" fxLayout="row" fxLayoutGap="30px" class="listChip">
       <mat-chip-list  *ngFor="let subPage of subPages">
-        <mat-chip [routerLink]="['/product', subPage.id]" (click)="changeSubPage(subPage.name)"> {{subPage.name}}</mat-chip>
+        <mat-chip [routerLink]="['/product', subPage.id]" (click)="changeSubPage(subPage.name,true)"> {{subPage.name}}</mat-chip>
       </mat-chip-list>
     </div>
   </div>

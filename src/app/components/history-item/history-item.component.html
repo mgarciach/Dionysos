@@ -1,7 +1,7 @@
 <mat-card class="example-card">
     <mat-card-title-group>
-      <mat-card-title>{{ history.prodType }} {{history.brand}}</mat-card-title>
-      <mat-card-subtitle class="content"><span>Name:  </span>{{ history.prodname }}</mat-card-subtitle>
+      <mat-card-title>{{ history.prodname }}</mat-card-title>
+      <mat-card-subtitle class="content"><span>Brand: </span>{{history.brand}}<span class="tab">Type: </span>{{ history.prodType }}</mat-card-subtitle>
       <mat-card-subtitle class="content">{{ history.invdate }}<span class="tab">Cases: </span>{{history.cases}}<span class="tab">Units: </span>{{history.units}}<span class="tab">Cscst: </span>{{history.invcscst}}</mat-card-subtitle>
     </mat-card-title-group>
   </mat-card>

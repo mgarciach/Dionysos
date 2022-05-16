@@ -1,7 +1,7 @@
-<app-section [subPages] = 'subPagesProduct' [isCustomerPage]="false" pageName="Products"></app-section>
+<app-section [subPages] = 'subPagesProduct' [isCustomerPage]="false" pageName="Products" (cleanFiltersEvent)="filter.cleanFilter()"></app-section>
 <div class="container">
     <div fxLayout.gt-sm="row" fxLayout.lt-md="column">
-        <app-product-filter [prodClass]='prodClass' fxFlex.gt-sm="25%" fxFlex.lt-md="25%" fxLayoutAlign="center none">
+        <app-product-filter #filter [prodClass]='prodClass' fxFlex.gt-sm="25%" fxFlex.lt-md="25%" fxLayoutAlign="center none">
         </app-product-filter>
         <app-product-list [prodClass]='prodClass' fxFlex.gt-sm="75%" fxFlex.lt-md="75%" fxLayoutAlign="center none">
         </app-product-list>

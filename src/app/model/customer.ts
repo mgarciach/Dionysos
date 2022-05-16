@@ -6,6 +6,7 @@ export interface Customer {
     custType: string,
     state: string,
     custphone: string,
+    visibility: string
 }
 
 export interface CustomerProfile {
@@ -51,16 +52,16 @@ export interface AccountHistory {
     invTotal: number
 }
 export interface State {
-    codigoTabla: number;
-    valor: string;
+    codigoTabla: number,
+    valor: string,
 }
 
 export interface City {
-    codigoTabla: number;
-    valor: string;
+    codigoTabla: number,
+    valor: string,
 }
 
 export interface CustType {
-    codigoTabla: number;
-    valor: string;
+    codigoTabla: number,
+    valor: string,
 }

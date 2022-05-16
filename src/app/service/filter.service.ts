@@ -25,7 +25,7 @@ export class FilterService {
   }
 
   getCountries(): Observable<ResponseBody> {
-    return this.http.post<ResponseBody>(`${this.apiServerUrl}/Productos/GetParametros`, {"tabla": "COUNTRY"});
+    return this.http.post<ResponseBody>(`${this.apiServerUrl}/Productos/GetParametros`, {"tabla": "country"});
   }
 
   getCities(state: string): Observable<ResponseBody> {
@@ -47,4 +47,13 @@ export class FilterService {
   getProducers(): Observable<ResponseBody> {
     return this.http.post<ResponseBody>(`${this.apiServerUrl}/Productos/GetProducer`, {"producer": 0});
   }
+
+  getTypes(): Observable<ResponseBody> {
+    return this.http.post<ResponseBody>(`${this.apiServerUrl}/Productos/GetParametros`, {"tabla": "prodType"});
+  }
+
+  getVarieties(): Observable<ResponseBody> {
+    return this.http.post<ResponseBody>(`${this.apiServerUrl}/Productos/GetParametros`, {"tabla": "prodVariety"});
+  }
+
 }

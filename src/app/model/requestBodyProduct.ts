@@ -6,7 +6,14 @@ export class RequestBodyProduct {
     public prodVariety: number = 0,
     public producer: number = 0,
     public prodBrand: number = 0,
-    public region: string = 'string'
+    public region: string = 'string',
+    public rating : boolean = false,
+    public vegan : boolean = false,
+    public bioDinamic: boolean = false,
+    public organic : boolean = false,
+    public sostenible : boolean = false,
+    public noSulfitos : boolean = false,
+    public noGenetico : boolean = false
   ) {}
 }
 

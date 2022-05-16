@@ -1,5 +1,15 @@
-<div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="center center">
-  <app-history-item *ngFor="let history of customerHistories | slice:0:50" [history]="history"></app-history-item>
+<div class="container">
+  <div fxLayout.gt-sm="row" fxLayout.lt-md="column">
+    <app-history-filter fxFlex.gt-sm="25%" fxFlex.lt-md="25%" fxLayoutAlign="center none">
+    </app-history-filter>
+    <div fxFlex.gt-sm="75%" fxFlex.lt-md="75%" fxLayoutAlign="center none">
+      <div fxLayout="row wrap" fxLayoutAlign="start start">
+        <app-history-item *ngFor="let history of customerHistories" [history]="history" ></app-history-item>
+      </div>
+    </div>
+  </div>
 </div>
+
+
 
 

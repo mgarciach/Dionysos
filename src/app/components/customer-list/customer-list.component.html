@@ -1,4 +1,4 @@
-<div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="start start">
-  <app-customer-item *ngFor="let customer of customers | slice:0:50" [customer]="customer" ></app-customer-item>
+<div fxLayout="row wrap" fxLayoutAlign="start start">
+  <app-customer-item *ngFor="let customer of customers" [customer]="customer" ></app-customer-item>
 </div>
 

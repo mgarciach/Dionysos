@@ -2,13 +2,13 @@
   <mat-card-title-group>
     <mat-card-title>{{ product.prodName }}</mat-card-title>
     <mat-card-subtitle>{{ product.brand }}</mat-card-subtitle>
-    <mat-card-subtitle class="content"><span>Country </span>{{ product.country }}</mat-card-subtitle>
-    <mat-card-subtitle class="content"><span>Region </span>{{ product.region }}</mat-card-subtitle>
-    <mat-card-subtitle class="content"><span>Size </span>{{ product.size }}</mat-card-subtitle>
-    <mat-card-subtitle class="content"><span>Type </span>{{ product.prodType }}</mat-card-subtitle>
-    <mat-card-subtitle class="content"><span>Variety </span>{{ product.variety }}</mat-card-subtitle>
-    <mat-card-subtitle class="content"><span>Rating </span>{{ product.rating }}</mat-card-subtitle>
-    <mat-card-subtitle class="text"></mat-card-subtitle>
+    <mat-card-subtitle class="content" fxLayout="row"><p class="title">Country </p><p class="value">{{ product.country }}</p></mat-card-subtitle>
+    <mat-card-subtitle class="content" fxLayout="row"><p class="title">Region </p><p class="value">{{ product.region }}</p></mat-card-subtitle>
+    <mat-card-subtitle class="content" fxLayout="row"><p class="title">Size </p><p class="value">{{ product.size }}</p></mat-card-subtitle>
+    <mat-card-subtitle class="content" fxLayout="row"><p class="title">Type </p><p class="value">{{ product.prodType }}</p></mat-card-subtitle>
+    <mat-card-subtitle class="content" fxLayout="row"><p class="title">Rating </p><p class="value">{{ product.rating }}</p></mat-card-subtitle>
+    <mat-card-subtitle class="content" fxLayout="row"><p class="title">Attrib</p><p class="value">{{ product.atributos }}</p></mat-card-subtitle>
+    <mat-card-subtitle class="variety" fxLayout="row"><p class="title">Variety </p><p class="value">{{ product.variety }}</p></mat-card-subtitle>
     <img mat-card-lg-image src="{{ product.imagen }}" >
   </mat-card-title-group>
 </mat-card>

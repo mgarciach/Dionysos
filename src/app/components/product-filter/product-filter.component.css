@@ -1,8 +1,18 @@
-h4 {
-    margin: 5px;
+mat-form-field.mat-form-field {
+  width: 300px;
 }
-.filter {
-    padding: 10px;
+
+mat-panel-description {
+  color: black;
+  font-weight: 500;
+}
+
+section {
+  margin: 10px 5px;
+}
+
+h4 {
+  margin: 5px;
 }
 
 button {
@@ -10,11 +20,8 @@ button {
   height: 25px;
 }
 
-mat-form-field.mat-form-field {
-    width:300px;
+.filter {
+  padding: 10px;
 }
 
-mat-panel-description{
-  color:black;
-  font-weight: 500;
-}
+

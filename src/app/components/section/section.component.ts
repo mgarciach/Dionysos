@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { SubPage } from 'src/app/model/subPage';
 import { LoginService } from 'src/app/service/login.service';
@@ -16,6 +16,8 @@ export class SectionComponent implements OnInit {
   subscription: Subscription;
   subPageName: string = "Home";
 
+  @Output() cleanFiltersEvent = new EventEmitter();
+
   @Input() pageName!: string;
   @Input() subPages!: SubPage[];
   @Input() isCustomerPage!: boolean;
@@ -24,19 +26,19 @@ export class SectionComponent implements OnInit {
     this.subscription = this.loginService.newIdCustomer$.subscribe((idCustomer) => {
       if(typeof idCustomer === 'number') {
         this.idCustomer = idCustomer;
-        console.log(this.idCustomer + ' desde seccion-page');
-      }    
+      }
     });
   }
 
-  changeSubPage(subPageName: string) {
+  changeSubPage(subPageName: string, cleanFilter?: boolean) {
+    if(cleanFilter) this.cleanFiltersEvent.emit(null);
     this.subPageName = subPageName;
   }
 
   ngOnInit(): void {
 
   }
-  
+
   ngOnDestroy() {
     // prevent memory leak when component destroyed
     this.subscription.unsubscribe();

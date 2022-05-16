@@ -12,7 +12,6 @@ import { FilterService } from 'src/app/service/filter.service';
 })
 export class CustomerListComponent implements OnInit {
   customers: Customer[] = [];
-  customersTemp: Customer[] = [];
 
   constructor(
     private customerService: CustomerService,
@@ -37,14 +36,13 @@ export class CustomerListComponent implements OnInit {
         this.getCustomers(data);
       }
       if (typeof data === 'string') {
-        if (data == '') {
-          this.customers = this.customersTemp;
-        } else {
-          this.customersTemp = this.customers;
-          this.customers = this.customers.filter((customer: Customer) => {
-            return customer.custname.toLowerCase().includes(data);
-          });
-        }
+        this.customers.forEach((customer: Customer) => {
+          if (customer.custname.toLowerCase().includes(data)) {
+            customer.visibility = "show";
+          } else {
+            customer.visibility = "hide";
+          }
+        });
       }
     });
   }

@@ -1,34 +1,47 @@
-.example-card {
-    width: 400px;
-    height: 250px;
-    margin: 5px;
+mat-card-title {
+  max-width: 300px;
 }
-span {
-    font-weight: bold;
-    width: 80px;
-    display: inline-block;
+mat-card-subtitle {
+  max-width: 300px;
 }
+mat-card-title {
+  font-size: 1.2em;
+}
+
 .content {
-    color:black;
+  color: black;
+  height: 30px;
+  margin-bottom: 0px;
+}
+
+.variety {
+  color: black;
+  height: 50px;
+  margin-bottom: 0px;
+}
+
+.show {
+  display: block;
+}
+.hide {
+  display: none;
+}
+.example-card {
+  width: 400px;
+  height: 280px;
+  margin: 5px;
+}
+.title {
+  font-weight: bold;
+  width: 80px;
+  display: block;
+}
+.value {
+  display: block;
+  max-width: 220px;
 }
 
 img {
-    width: 100px;
-    height: 150px;
-}
-
-mat-card-title {
-    max-width: 300px;
-}
-
-mat-card-title {
-    font-size: 1.2em;
-}
-
-.show{
-    display: block;
-}
-
-.hide{
-    display: none;
+  width: 100px;
+  height: 150px;
 }

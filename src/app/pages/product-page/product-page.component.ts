@@ -10,7 +10,7 @@ import { SubPage } from 'src/app/model/subPage';
 })
 export class ProductPageComponent implements OnInit {
 
-  prodClass!: number; 
+  prodClass!: number;
 
   subPagesProduct: SubPage []= [{
     name: 'Wine',
@@ -32,7 +32,7 @@ export class ProductPageComponent implements OnInit {
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe(param => { 
+    this.route.params.subscribe(param => {
       this.prodClass = param['prodClass'];
     })
   }

@@ -29,6 +29,7 @@ import { AboutusPageComponent } from './pages/aboutus-page/aboutus-page.componen
 import { DistributorsPageComponent } from './pages/distributors-page/distributors-page.component';
 import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 import { ProductDetailPageComponent } from './pages/product-detail-page/product-detail-page.component';
+import { HistoryFilterComponent } from './components/history-filter/history-filter.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +54,8 @@ import { ProductDetailPageComponent } from './pages/product-detail-page/product-
     AboutusPageComponent,
     DistributorsPageComponent,
     ContactPageComponent,
-    ProductDetailPageComponent
+    ProductDetailPageComponent,
+    HistoryFilterComponent
   ],
   imports: [
     BrowserModule,

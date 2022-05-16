@@ -4,6 +4,7 @@ import { CustomerHistory } from 'src/app/model/customer';
 import { RequestBodyGetHistoryByDates } from 'src/app/model/requestBodyCustomer';
 import { ResponseBody } from 'src/app/model/responseBody';
 import { CustomerService } from 'src/app/service/customer.service';
+import { FilterService } from 'src/app/service/filter.service';
 import { LoginService } from 'src/app/service/login.service';
 
 @Component({
@@ -20,7 +21,7 @@ export class HistoryPageComponent implements OnInit {
 
   customerHistories: CustomerHistory[] = [];
 
-  constructor(private loginService: LoginService, private customerService: CustomerService) { }
+  constructor(private loginService: LoginService, private customerService: CustomerService, private filterService: FilterService) { }
 
   public getHistoryCustomer(requestBody: RequestBodyGetHistoryByDates): void {
     this.customerService
@@ -33,8 +34,14 @@ export class HistoryPageComponent implements OnInit {
   ngOnInit(): void {
     let custNum = this.loginService.getCustNum();
     let requestBody = new RequestBodyGetHistoryByDates(custNum, this.formatInitDate, this.formatNowDate,2);
-    console.log(requestBody);
     this.getHistoryCustomer(requestBody);
+    //filtro
+    this.filterService.newFilterData$.subscribe((data) => {
+        let formatStartDate = data.start.toISOString().split('T')[0];
+        let formatEndDate = data.end.toISOString().split('T')[0];
+        let requestBody = new RequestBodyGetHistoryByDates(custNum, formatStartDate, formatEndDate,2);
+        this.getHistoryCustomer(requestBody);
+    });
   }
 
 }

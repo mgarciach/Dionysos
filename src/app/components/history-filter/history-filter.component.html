@@ -1,0 +1,14 @@
+<mat-form-field class="example-form-field" appearance="fill">
+  <mat-label>Enter a date range</mat-label>
+  <mat-date-range-input
+    [formGroup]="form"
+    [rangePicker]="formPicker"
+    [comparisonStart]="form.value.start"
+    [comparisonEnd]="form.value.end">
+    <input matStartDate placeholder="Start date" formControlName="start">
+    <input matEndDate placeholder="End date" formControlName="end">
+  </mat-date-range-input>
+  <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+  <mat-datepicker-toggle matSuffix [for]="formPicker"></mat-datepicker-toggle>
+  <mat-date-range-picker #formPicker (closed)="filterByDates()"></mat-date-range-picker>
+</mat-form-field>

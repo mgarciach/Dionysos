@@ -3,12 +3,19 @@
     height: 150px;
     margin: 5px;
 }
+.tab {
+  margin-left: 20px;
+}
+.show {
+  display: block;
+}
+.hide {
+  display: none;
+}
+
 span {
     font-weight: bold;
 }
 mat-card-title {
     font-size: 1.2em;
-}
-.tab {
-  margin-left: 20px;
 }
