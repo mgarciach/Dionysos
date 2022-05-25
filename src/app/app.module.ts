@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ProductItemComponent } from './components/product-item/product-item.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductFilterComponent } from './components/product-filter/product-filter.component';
@@ -30,6 +30,20 @@ import { DistributorsPageComponent } from './pages/distributors-page/distributor
 import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 import { ProductDetailPageComponent } from './pages/product-detail-page/product-detail-page.component';
 import { HistoryFilterComponent } from './components/history-filter/history-filter.component';
+import { LoginService } from './service/login.service';
+
+const initializeApp = (loginService: LoginService, http: HttpClient) => {
+
+  return () => new Promise<void>((resolve, reject) => {
+    const idCustomer = localStorage.getItem('app.idCustomer');
+    const custNum = localStorage.getItem('app.custNum') as string;
+    if (idCustomer && custNum) {
+      loginService.setCustomer(parseInt(idCustomer) as any, custNum);
+    }
+    resolve();
+  });
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,7 +81,12 @@ import { HistoryFilterComponent } from './components/history-filter/history-filt
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{
+    provide: APP_INITIALIZER,
+    useFactory: initializeApp,
+    deps: [LoginService, HttpClient],
+    multi: true
+  }],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

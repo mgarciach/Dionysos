@@ -1,47 +1,97 @@
 <mat-toolbar color="primary">
-    <img src="../../../assets/images/logoNav.png" alt="">
-    <div>
-      <a mat-button [routerLink]="'/home'"> Home </a>
-      <a mat-button [routerLink]="'/about-us'"> About Us </a>
-      <a mat-button [routerLink]="'/product/0'"> Products </a>
-      <a mat-button [routerLink]="'/customer'"> Customers </a>
-      <a mat-button [routerLink]="'/distributor'"> Distributors </a>
-      <a mat-button [routerLink]="'/contact'"> Contact </a>
+  <img
+    src="../../../assets/images/logoNav.png"
+    alt>
+  <div>
+    <a
+      mat-button
+      [routerLink]="'/home'">
+      Home
+    </a>
+    <a
+      mat-button
+      [routerLink]="'/about-us'">
+      About Us
+    </a>
+    <a
+      mat-button
+      [routerLink]="'/product/0'">
+      Products
+    </a>
+    <a
+      mat-button
+      [routerLink]="'/customer'">
+      Customers
+    </a>
+    <a
+      mat-button
+      [routerLink]="'/distributor'">
+      Distributors
+    </a>
+    <a
+      mat-button
+      [routerLink]="'/contact'">
+      Contact
+    </a>
+  </div>
+  <span class="menu-spacer"></span>
+  <div>
+    <form>
+      <mat-form-field color="accent">
+        <span matPrefix> </span>
+        <input
+          type="tel"
+          matInput
+          placeholder="Search"
+          name="search">
+        <button
+          matSuffix
+          mat-button>
+          <mat-icon>search</mat-icon>
+        </button>
+      </mat-form-field>
+    </form>
+  </div>
+  <span class="menu-spacer"></span>
+  <div class="example-button-row">
+    <div class="example-flex-container">
+      <button mat-icon-button>
+        <mat-icon>facebook</mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon svgIcon="instagram"></mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon svgIcon="twitter"></mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon svgIcon="linkedin"></mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon svgIcon="otro"></mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        *ngIf="!idCustomer"
+        class="loginout"
+        [routerLink]="'/login'">
+        <mat-icon
+          matTooltip="Login"
+          matTooltipPosition="above">
+          person
+        </mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        *ngIf="idCustomer"
+        class="loginout"
+        (click)="logout()">
+        <mat-icon
+          matTooltip="Logout"
+          matTooltipPosition="above">
+          logout
+        </mat-icon>
+      </button>
     </div>
-    <span class="menu-spacer"></span>
-    <div>
-        <form>
-            <mat-form-field color="accent">
-                <span matPrefix> </span>
-                <input type="tel" matInput placeholder="Search" name= "search">
-                <button matSuffix mat-button><mat-icon >search</mat-icon></button>
-            </mat-form-field>
-        </form>
-    </div>  
-    <span class="menu-spacer"></span>
-    <div class="example-button-row">
-        <div class="example-flex-container">
-          <button mat-icon-button>
-            <mat-icon>facebook</mat-icon>
-          </button>
-          <button mat-icon-button>
-            <mat-icon svgIcon="instagram"></mat-icon>
-          </button>
-          <button mat-icon-button>
-            <mat-icon svgIcon="twitter"></mat-icon>
-          </button>
-          <button mat-icon-button>
-            <mat-icon svgIcon="linkedin"></mat-icon>
-          </button>
-          <button mat-icon-button>
-            <mat-icon svgIcon="otro"></mat-icon>
-          </button>          
-          <button mat-icon-button *ngIf="!idCustomer"class="loginout" [routerLink]="'/login'">
-            <mat-icon>login</mat-icon>
-          </button>
-          <button mat-icon-button *ngIf="idCustomer" class="loginout" (click)="logout()">
-            <mat-icon>logout</mat-icon>
-          </button>
-        </div>
-    </div>
+  </div>
 </mat-toolbar>

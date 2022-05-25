@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SubPage } from 'src/app/model/subPage';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-customer-page',
@@ -7,19 +8,19 @@ import { SubPage } from 'src/app/model/subPage';
   styleUrls: ['./customer-page.component.css'],
 })
 export class CustomerPageComponent implements OnInit {
-  
+
   subPagesCustomer: SubPage[] = [{
     name: 'Profile',
     url: '/customer/profile',
   }, {
     name: 'History',
     url: '/customer/history',
-  },{
-    name: 'Account Payables',
+  }, {
+    name: 'Accounts Payable',
     url: '/customer/account-payables',
   }];
 
-  constructor() {
+  constructor(public loginService: LoginService) {
 
   }
 

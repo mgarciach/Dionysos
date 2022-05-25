@@ -60,12 +60,12 @@
     <mat-checkbox [(ngModel)]="rating" (change)="filterBySelects(false)">Yes/No</mat-checkbox>
   </section>
   <h4>Other Features</h4>
-  <section fxLayout="row wrap" fxLayoutGap="5px">
-    <mat-checkbox [(ngModel)]="vegan" (change)="filterBySelects(false)">VE</mat-checkbox>
-    <mat-checkbox [(ngModel)]="bioDinamic" (change)="filterBySelects(false)">BD</mat-checkbox>
-    <mat-checkbox [(ngModel)]="organic" (change)="filterBySelects(false)">OR</mat-checkbox>
-    <mat-checkbox [(ngModel)]="sostenible" (change)="filterBySelects(false)">SU</mat-checkbox>
-    <mat-checkbox [(ngModel)]="noSulfitos" (change)="filterBySelects(false)">NS</mat-checkbox>
-    <mat-checkbox [(ngModel)]="noGenetico" (change)="filterBySelects(false)">NG</mat-checkbox>
+  <section fxLayout="column" fxLayoutGap="5px">
+    <mat-checkbox [(ngModel)]="vegan" (change)="filterBySelects(false)">Vegan</mat-checkbox>
+    <mat-checkbox [(ngModel)]="bioDinamic" (change)="filterBySelects(false)">BioDinamic</mat-checkbox>
+    <mat-checkbox [(ngModel)]="organic" (change)="filterBySelects(false)">Organic</mat-checkbox>
+    <mat-checkbox [(ngModel)]="sostenible" (change)="filterBySelects(false)">Sustainable</mat-checkbox>
+    <mat-checkbox [(ngModel)]="noSulfitos" (change)="filterBySelects(false)">No Sulfites</mat-checkbox>
+    <mat-checkbox [(ngModel)]="noGenetico" (change)="filterBySelects(false)">Non Genetic</mat-checkbox>
   </section>
 </div>

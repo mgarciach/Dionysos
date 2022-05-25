@@ -10,10 +10,10 @@ import { ResponseBody } from '../model/responseBody';
 export class LoginService {
 
   private apiServerUrl = environment.apiUrl;
-  idCustomer!: string ;
-  custNum!: string ;
+  idCustomer!: string;
+  custNum!: string;
 
-  private idCustomer$ = new BehaviorSubject<any>({});
+  private idCustomer$ = new BehaviorSubject<any>('');
   newIdCustomer$ = this.idCustomer$.asObservable();
 
   constructor(private http: HttpClient) { }
@@ -25,11 +25,15 @@ export class LoginService {
   setCustomer(idCustomer: string, custNum: string) {
     this.idCustomer = idCustomer;
     this.custNum = custNum;
+    localStorage.setItem('app.idCustomer', idCustomer);
+    localStorage.setItem('app.custNum', custNum);
     this.idCustomer$.next(this.idCustomer);
   }
   removeCustomer() {
     this.idCustomer = '';
     this.custNum = '';
+    localStorage.removeItem('app.idCustomer');
+    localStorage.removeItem('app.custNum');
     this.idCustomer$.next(this.idCustomer);
   }
 

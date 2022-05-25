@@ -1,3 +1,22 @@
-<app-section [subPages] = 'subPagesCustomer' [isCustomerPage]="true" pageName="Customers"></app-section>
-<router-outlet></router-outlet> 
+<app-section
+  [subPages]="subPagesCustomer"
+  [isCustomerPage]="true"
+  pageName="Customers"
+  subPageName="Profile"
+  [content]="tplLoginButton">
 
+</app-section>
+<router-outlet></router-outlet>
+
+<ng-template #tplLoginButton>
+  <ng-container *ngIf="loginService.newIdCustomer$ | async as newIdCustomer; else tplLogin"></ng-container>
+</ng-template>
+
+<ng-template #tplLogin>
+  <mat-chip-list fxLayoutAlign="center center">
+    <mat-chip [routerLink]="['/login']">
+      <mat-icon>person</mat-icon>
+      Login
+    </mat-chip>
+  </mat-chip-list>
+</ng-template>
