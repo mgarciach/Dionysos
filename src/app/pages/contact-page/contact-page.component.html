@@ -1,13 +1,82 @@
 <app-section pageName="Contact"></app-section>
-<div class="container" fxLayout="column" fxLayoutAlign="center center">
-    <mat-card class="card">
-        <mat-card-title-group>
-          <mat-card-title>Dionysos Imports, Inc.</mat-card-title>
-          <mat-card-subtitle>11581 Robertson Dr,</mat-card-subtitle>
-          <mat-card-subtitle>Manassas, VA 20109</mat-card-subtitle>
-          <mat-card-subtitle><strong>Tel:</strong> <a href="tel:703-392-7073">(703) 392-7073</a></mat-card-subtitle>
-          <mat-card-subtitle><strong>Fax:</strong> (703) 392-7075</mat-card-subtitle>
-          <img src="../../../assets/images/logoNav.png" >
-        </mat-card-title-group>
-    </mat-card>
+<div
+  class="container"
+  fxLayout="column"
+  fxLayoutAlign="flex-start center">
+  <mat-card class="card">
+    <mat-card-title-group>
+      <mat-card-title>Dionysos Imports, Inc.</mat-card-title>
+      <mat-card-subtitle>11581 Robertson Dr,</mat-card-subtitle>
+      <mat-card-subtitle>Manassas, VA 20109</mat-card-subtitle>
+      <mat-card-subtitle>
+        <strong>Tel:</strong>
+        <a href="tel:703-392-7073">(703) 392-7073</a>
+      </mat-card-subtitle>
+      <mat-card-subtitle>
+        <strong>Fax:</strong>
+        (703) 392-7075
+      </mat-card-subtitle>
+      <img src="../../../assets/images/logoNav.png">
+    </mat-card-title-group>
+  </mat-card>
+
+  <div
+    fxLayout="row"
+    fxLayout.lt-md="column">
+    <div
+      fxFlex="50%"
+      *ngFor="let item of data.grupo1">
+      <ng-container *ngTemplateOutlet="tplContacto; context: {$implicit: item}"></ng-container>
+    </div>
+  </div>
+
+  <div
+    fxLayout="row"
+    fxLayoutAlign="flex-start center">
+
+    <div fxFlex="50%">
+      <ng-container *ngTemplateOutlet="tplContacto; context: {$implicit: data.grupo2[0]}"></ng-container>
+    </div>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <h3>Sales Representatives</h3>
+  <div style="max-width: 75%">
+    <div
+      fxLayout="row wrap"
+      fxLayout.lt-md="column">
+      <div
+        fxFlex="50%"
+        *ngFor="let item of data.grupo3">
+        <ng-container *ngTemplateOutlet="tplContacto; context: {$implicit: item}"></ng-container>
+      </div>
+    </div>
+  </div>
+
+  <div
+    fxLayout="row"
+    fxLayoutAlign="flex-start center">
+
+    <div fxFlex="50%">
+      <ng-container *ngTemplateOutlet="tplContacto; context: {$implicit: data.grupo4[0]}"></ng-container>
+    </div>
+  </div>
+
 </div>
+
+<ng-template
+  #tplContacto
+  let-item>
+
+  <mat-card class="card">
+    <mat-card-title class="text-center">{{item.titulo}}</mat-card-title>
+    <mat-card-subtitle class="text-center">{{item.subtitulo}}</mat-card-subtitle>
+    <mat-card-subtitle
+      *ngIf="item.telefono"
+      class="text-center">
+      <a href="tel:{{item.telefonoRaw}}">{{item.telefono}}</a>
+    </mat-card-subtitle>
+    <mat-card-subtitle class="text-center">{{item.correo}}</mat-card-subtitle>
+  </mat-card>
+</ng-template>
