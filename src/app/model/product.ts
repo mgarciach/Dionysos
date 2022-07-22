@@ -13,6 +13,7 @@ export interface Product {
     imagen: string,
     filtro: string,
     visibility: string,
+    webSite:string
 }
 
 export interface ProductDetails {

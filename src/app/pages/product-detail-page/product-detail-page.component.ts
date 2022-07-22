@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Customer } from 'src/app/model/customer';
 import { Product, ProductDetails } from 'src/app/model/product';
 import { RequestBodyProductDetail } from 'src/app/model/requestBodyProduct';
 import { ResponseBody } from 'src/app/model/responseBody';
+import { CustomerService } from 'src/app/service/customer.service';
 import { ProductService } from 'src/app/service/product.service';
 
 @Component({
@@ -13,8 +15,12 @@ import { ProductService } from 'src/app/service/product.service';
 export class ProductDetailPageComponent implements OnInit {
   product!: Product;
   productDetails: ProductDetails[] = [];
+  customers: Customer[] = [];
 
-  constructor(private productService: ProductService) {}
+  constructor(
+    private productService: ProductService,
+    private customerService: CustomerService
+  ) {}
 
   getProductDetails(requestBody: RequestBodyProductDetail): void {
     this.productService
@@ -27,6 +33,22 @@ export class ProductDetailPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.product = this.productService.getProduct();
-    this.getProductDetails(new RequestBodyProductDetail(this.product.prodCode.toString()));
+    this.getProductDetails(
+      new RequestBodyProductDetail(this.product.prodCode.toString())
+    );
+    this.getCustomers();
   }
+
+  getCustomers = () => {
+    this.customerService
+      .getCustomers({
+        city: 0,
+        state: 0,
+        type: 0,
+        prodcode: this.product.prodCode.toString(),
+      })
+      .subscribe((resp) => {
+        this.customers = resp.data;
+      });
+  };
 }

@@ -5,10 +5,9 @@ import { FilterService } from 'src/app/service/filter.service';
 @Component({
   selector: 'app-history-filter',
   templateUrl: './history-filter.component.html',
-  styleUrls: ['./history-filter.component.css']
+  styleUrls: ['./history-filter.component.css'],
 })
 export class HistoryFilterComponent implements OnInit {
-
   form: FormGroup;
 
   constructor(private filterService: FilterService) {
@@ -20,6 +19,7 @@ export class HistoryFilterComponent implements OnInit {
     this.form = new FormGroup({
       start: new FormControl(new Date(year, 0, 1)),
       end: new FormControl(new Date(year, month, day)),
+      order: new FormControl(1),
     });
   }
 
@@ -28,6 +28,9 @@ export class HistoryFilterComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.form.get('order')?.valueChanges.subscribe((value) => {
+      console.log(this.form.value);
+      this.filterService.broadcast(this.form.getRawValue());
+    });
   }
-
 }

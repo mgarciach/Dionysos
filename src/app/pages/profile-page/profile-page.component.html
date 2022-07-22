@@ -1,74 +1,191 @@
-<div class="container"  fxLayoutAlign="center center">
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title>Profile</mat-card-title>
-      </mat-card-header>
-      <form [formGroup]="form">
-        <input matInput placeholder="Name" formControlName="idCustomer" hidden>
-        <mat-card-content fxLayout="column" fxLayoutGap="10px">
-          <div fxLayout.gt-sm="row" fxLayout.lt-md="column" fxLayoutGap="30px" fxFlex="33%">
-            <mat-form-field color="accent" fxFlex.gt-sm="50%" fxFlex.lt-md="100%" fxFlexFill>
-              <input matInput placeholder="Name" formControlName="custNameWeb">
-            </mat-form-field>
-            <mat-form-field color="accent" fxFlex.gt-sm="50%" fxFlex.lt-md="100%" fxFlexFill>
-              <input matInput placeholder="Address" formControlName="custAddrWeb">
-            </mat-form-field>
-          </div>
+<div
+  class="container"
+  fxLayoutAlign="center flex-start">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Profile</mat-card-title>
+    </mat-card-header>
+    <form [formGroup]="form">
+      <input
+        matInput
+        placeholder="Name"
+        formControlName="idCustomer"
+        hidden>
+      <mat-card-content
+        fxLayout="column"
+        fxLayoutGap="10px">
+        <div
+          fxLayout.gt-sm="row"
+          fxLayout.lt-md="column"
+          fxLayoutGap="30px"
+          fxFlex="33%">
+          <mat-form-field
+            color="accent"
+            fxFlex.gt-sm="50%"
+            fxFlex.lt-md="100%"
+            fxFlexFill>
+            <input
+              matInput
+              placeholder="Name"
+              formControlName="custNameWeb">
+          </mat-form-field>
+          <mat-form-field
+            color="accent"
+            fxFlex.gt-sm="50%"
+            fxFlex.lt-md="100%"
+            fxFlexFill>
+            <input
+              matInput
+              placeholder="Address"
+              formControlName="custAddrWeb">
+          </mat-form-field>
+        </div>
 
-          <div fxLayout.gt-sm="row" fxLayout.lt-md="column" fxLayoutGap="30px" fxFlex="33%">
-            <mat-form-field appearance="fill" color="accent" fxFlex.gt-sm="25%" fxFlex.lt-md="100%"  fxFlexFill>
-              <mat-label>State</mat-label>
-              <mat-select formControlName="stateWeb">
-                <mat-option *ngFor="let state of states" [value]="state.codigoTabla" (click)="setCities(state.valor)" >
-                  {{state.valor}}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-            <mat-form-field appearance="fill" color="accent" fxFlex.gt-sm="25%" fxFlex.lt-md="100%"  fxFlexFill>
-              <mat-label>City</mat-label>
-              <mat-select formControlName="cityWeb">
-                <mat-option *ngFor="let city of cities" [value]="city.codigoTabla">
-                  {{city.valor}}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-            <mat-form-field color="accent" fxFlex.gt-sm="25%" fxFlex.lt-md="100%" fxFlexFill>
-              <input matInput placeholder="County" formControlName="countyWeb">
-            </mat-form-field>
-            <mat-form-field color="accent" fxFlex.gt-sm="25%" fxFlex.lt-md="100%" fxFlexFill>
-              <input matInput placeholder="Zip" formControlName="custZipWeb">
-            </mat-form-field>
-          </div>
+        <div
+          fxLayout.gt-sm="row"
+          fxLayout.lt-md="column"
+          fxLayoutGap="30px"
+          fxFlex="33%">
+          <mat-form-field
+            appearance="fill"
+            color="accent"
+            fxFlex.gt-sm="25%"
+            fxFlex.lt-md="100%"
+            fxFlexFill>
+            <mat-label>State</mat-label>
+            <mat-select formControlName="stateWeb">
+              <mat-option
+                *ngFor="let state of states"
+                [value]="state.codigoTabla"
+                (click)="setCities(state.valor)">
+                {{state.valor}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field
+            appearance="fill"
+            color="accent"
+            fxFlex.gt-sm="25%"
+            fxFlex.lt-md="100%"
+            fxFlexFill>
+            <mat-label>City</mat-label>
+            <mat-select formControlName="cityWeb">
+              <mat-option
+                *ngFor="let city of cities"
+                [value]="city.codigoTabla">
+                {{city.valor}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field
+            color="accent"
+            fxFlex.gt-sm="25%"
+            fxFlex.lt-md="100%"
+            fxFlexFill>
+            <input
+              matInput
+              placeholder="County"
+              formControlName="countyWeb">
+          </mat-form-field>
+          <mat-form-field
+            color="accent"
+            fxFlex.gt-sm="25%"
+            fxFlex.lt-md="100%"
+            fxFlexFill>
+            <input
+              matInput
+              placeholder="Zip"
+              formControlName="custZipWeb">
+          </mat-form-field>
+        </div>
 
-          <div fxLayout.gt-sm="row" fxLayout.lt-md="column" fxLayoutGap="30px" fxFlex="33%">
-            <mat-form-field appearance="fill" color="accent" fxFlex.gt-sm="25%" fxFlex.lt-md="100%"  fxFlexFill>
-              <mat-label>Type</mat-label>
-              <mat-select formControlName="type">
-                <mat-option *ngFor="let custType of custTypes" [value]="custType.codigoTabla">
-                  {{custType.valor}}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-            <mat-form-field color="accent" fxFlex.gt-sm="33%" fxFlex.lt-md="100%"  fxFlexFill>
-              <input matInput placeholder="License" formControlName="custLicenseWeb">
-            </mat-form-field>
-            <mat-form-field color="accent" fxFlex.gt-sm="33%" fxFlex.lt-md="100%" fxFlexFill>
-              <input matInput placeholder="Phone" formControlName="custPhoneWeb">
-            </mat-form-field>
-          </div>
-          <div fxLayout.gt-sm="row" fxLayout.lt-md="column" fxLayoutGap="30px" fxFlex="33%">
-            <mat-form-field color="accent" fxFlex.gt-sm="50%" fxFlex.lt-md="100%" fxFlexFill>
-              <input matInput placeholder="Website" formControlName="custWebSiteWeb">
-            </mat-form-field>
-            <mat-form-field color="accent" fxFlex.gt-sm="50%" fxFlex.lt-md="100%" fxFlexFill>
-              <input matInput placeholder="Email" formControlName="custEmailWeb">
-            </mat-form-field>
-          </div>
-        </mat-card-content>
-        <button mat-stroked-button color="accent" class="btn-block" (click)="update()">Update</button>
-      </form>
-    </mat-card>
+        <div
+          fxLayout.gt-sm="row"
+          fxLayout.lt-md="column"
+          fxLayoutGap="30px"
+          fxFlex="33%">
+          <mat-form-field
+            appearance="fill"
+            color="accent"
+            fxFlex.gt-sm="25%"
+            fxFlex.lt-md="100%"
+            fxFlexFill>
+            <mat-label>Type</mat-label>
+            <mat-select formControlName="type">
+              <mat-option
+                *ngFor="let custType of custTypes"
+                [value]="custType.codigoTabla">
+                {{custType.valor}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field
+            color="accent"
+            fxFlex.gt-sm="33%"
+            fxFlex.lt-md="100%"
+            fxFlexFill>
+            <input
+              matInput
+              placeholder="License"
+              formControlName="custLicenseWeb">
+          </mat-form-field>
+          <mat-form-field
+            color="accent"
+            fxFlex.gt-sm="33%"
+            fxFlex.lt-md="100%"
+            fxFlexFill>
+            <input
+              matInput
+              placeholder="Phone"
+              formControlName="custPhoneWeb">
+          </mat-form-field>
+        </div>
+        <div
+          fxLayout.gt-sm="row"
+          fxLayout.lt-md="column"
+          fxLayoutGap="30px"
+          fxFlex="33%">
+          <mat-form-field
+            color="accent"
+            fxFlex.gt-sm="50%"
+            fxFlex.lt-md="100%"
+            fxFlexFill>
+            <input
+              matInput
+              placeholder="Website"
+              formControlName="custWebSiteWeb">
+          </mat-form-field>
+          <mat-form-field
+            color="accent"
+            fxFlex.gt-sm="50%"
+            fxFlex.lt-md="100%"
+            fxFlexFill>
+            <input
+              matInput
+              placeholder="Email"
+              formControlName="custEmailWeb">
+          </mat-form-field>
+
+          <mat-form-field
+            color="accent"
+            fxFlex.gt-sm="50%"
+            fxFlex.lt-md="100%"
+            fxFlexFill>
+            <input
+              matInput
+              placeholder="Contact"
+              formControlName="custContactWeb">
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+      <button
+        [disabled]="loading"
+        mat-stroked-button
+        color="accent"
+        class="btn-block"
+        (click)="update()">
+        Update
+      </button>
+    </form>
+  </mat-card>
 </div>
-
-
-

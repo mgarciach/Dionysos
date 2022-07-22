@@ -1,24 +1,70 @@
-<app-section  [isCustomerPage]="false" pageName="Product Detail"></app-section>
-<div class="container" fxLayout="column" fxLayoutAlign="none center">
-  <mat-card fxLayout="row" fxLayoutGap="30px" fxLayoutAlign="center">
-    <img mat-card-xl-image src="{{product?.imagen}}" >
+<app-section
+  [isCustomerPage]="false"
+  pageName="Product Detail"></app-section>
+<div
+  class="container"
+  fxLayout="column"
+  fxLayoutAlign="none center">
+  <mat-card
+    fxLayout="row"
+    fxLayoutGap="30px"
+    fxLayoutAlign="center">
+    <img
+      mat-card-xl-image
+      src="{{product?.imagen}}">
     <mat-card-title-group>
       <mat-card-title>{{ product?.prodName }}</mat-card-title>
       <mat-card-subtitle class="subtittle">{{ product?.brand }}</mat-card-subtitle>
-      <mat-card-subtitle class="content"><span class="space">Country </span>{{ product?.country }}</mat-card-subtitle>
-      <mat-card-subtitle class="content"><span class="space">Region </span>{{ product?.region }}</mat-card-subtitle>
-      <mat-card-subtitle class="content"><span class="space">Size </span>{{ product?.size }}</mat-card-subtitle>
-      <mat-card-subtitle class="content"><span class="space">Type </span>{{ product?.prodType }}</mat-card-subtitle>
-      <mat-card-subtitle class="content"><span class="space">Variety </span>{{ product?.variety }}</mat-card-subtitle>
-      <mat-card-subtitle class="content"><span class="space">Rating </span>{{ product?.rating }}</mat-card-subtitle>
-      <mat-card-subtitle class="text"><p>{{productDetails[0].prodMemo}}</p></mat-card-subtitle>
+      <mat-card-subtitle class="content">
+        <span class="space">Country </span>
+        {{ product?.country }}
+      </mat-card-subtitle>
+      <mat-card-subtitle class="content">
+        <span class="space">Region </span>
+        {{ product?.region }}
+      </mat-card-subtitle>
+      <mat-card-subtitle class="content">
+        <span class="space">Size </span>
+        {{ product?.size }}
+      </mat-card-subtitle>
+      <mat-card-subtitle class="content">
+        <span class="space">Type </span>
+        {{ product?.prodType }}
+      </mat-card-subtitle>
+      <mat-card-subtitle class="content">
+        <span class="space">Variety </span>
+        {{ product?.variety }}
+      </mat-card-subtitle>
+      <mat-card-subtitle class="content">
+        <span class="space">Rating </span>
+        {{ product?.rating }}
+      </mat-card-subtitle>
+      <mat-card-subtitle class="content">
+        <span class="space">Website </span>
+        {{ product?.webSite }}
+      </mat-card-subtitle>
+      <mat-card-subtitle class="text">
+        <p>{{productDetails[0].prodMemo}}</p>
+      </mat-card-subtitle>
     </mat-card-title-group>
   </mat-card>
   <mat-card class="brand">
     <mat-card-title>About the Producer</mat-card-title>
-    <img class="imgBrand" mat-card-image src="{{productDetails[0].brandPic}}" alt="Photo of a Shiba Inu">
+    <img
+      class="imgBrand"
+      mat-card-image
+      src="{{productDetails[0].brandPic}}"
+      alt="Photo of a Shiba Inu">
     <mat-card-content>
       <p *ngFor="let productDetail of productDetails">{{productDetail.memo}}</p>
     </mat-card-content>
   </mat-card>
+</div>
+
+<div
+  fxLayout="row wrap"
+  fxLayoutAlign="center flex-start">
+  <app-customer-item
+    *ngFor="let customer of customers"
+    [customer]="customer"></app-customer-item>
 </div>

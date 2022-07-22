@@ -2,7 +2,8 @@ export class RequestBodyCustomer {
   constructor(
     public state: number = 0,
     public city: number = 0,
-    public type: number = 0
+    public type: number = 0,
+    public prodcode: string = null!
   ) {}
 }
 

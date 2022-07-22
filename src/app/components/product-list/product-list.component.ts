@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/model/product';
 import { RequestBodyProduct } from 'src/app/model/requestBodyProduct';
 import { ResponseBody } from 'src/app/model/responseBody';
@@ -16,7 +17,8 @@ export class ProductListComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private filterService: FilterService
+    private filterService: FilterService,
+    private route: ActivatedRoute
   ) {}
 
   getProducts(requestBody: RequestBodyProduct): void {
@@ -30,15 +32,16 @@ export class ProductListComponent implements OnInit {
   ngOnInit(): void {
     //cambio de filtro
     this.filterService.newFilterData$.subscribe((data) => {
-      if (data instanceof RequestBodyProduct) {
+      console.log(data);
+      if (data instanceof RequestBodyProduct || data instanceof Object) {
         this.getProducts(data);
       }
       if (typeof data === 'string') {
         this.products.forEach((product: Product) => {
           if (product.filtro.toLowerCase().includes(data)) {
-            product.visibility = "show";
+            product.visibility = 'show';
           } else {
-            product.visibility = "hide";
+            product.visibility = 'hide';
           }
         });
       }
@@ -55,6 +58,13 @@ export class ProductListComponent implements OnInit {
       0,
       'string'
     );
-    this.getProducts(requestBody);
+
+    if (!this.getFilters()) {
+      this.getProducts(requestBody);
+    }
   }
+
+  private getFilters = () => {
+    return this.route.snapshot.paramMap.get('filter');
+  };
 }

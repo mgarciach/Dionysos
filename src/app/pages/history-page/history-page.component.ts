@@ -10,18 +10,21 @@ import { LoginService } from 'src/app/service/login.service';
 @Component({
   selector: 'app-history-page',
   templateUrl: './history-page.component.html',
-  styleUrls: ['./history-page.component.css']
+  styleUrls: ['./history-page.component.css'],
 })
 export class HistoryPageComponent implements OnInit {
-
   nowDate = new Date();
-  initDate = new Date(this.nowDate.getFullYear(),0,1);
+  initDate = new Date(this.nowDate.getFullYear(), 0, 1);
   formatNowDate = this.nowDate.toISOString().split('T')[0];
   formatInitDate = this.initDate.toISOString().split('T')[0];
 
   customerHistories: CustomerHistory[] = [];
 
-  constructor(private loginService: LoginService, private customerService: CustomerService, private filterService: FilterService) { }
+  constructor(
+    private loginService: LoginService,
+    private customerService: CustomerService,
+    private filterService: FilterService
+  ) {}
 
   public getHistoryCustomer(requestBody: RequestBodyGetHistoryByDates): void {
     this.customerService
@@ -33,15 +36,24 @@ export class HistoryPageComponent implements OnInit {
 
   ngOnInit(): void {
     let custNum = this.loginService.getCustNum();
-    let requestBody = new RequestBodyGetHistoryByDates(custNum, this.formatInitDate, this.formatNowDate,2);
+    let requestBody = new RequestBodyGetHistoryByDates(
+      custNum,
+      this.formatInitDate,
+      this.formatNowDate,
+      1
+    );
     this.getHistoryCustomer(requestBody);
     //filtro
     this.filterService.newFilterData$.subscribe((data) => {
-        let formatStartDate = data.start.toISOString().split('T')[0];
-        let formatEndDate = data.end.toISOString().split('T')[0];
-        let requestBody = new RequestBodyGetHistoryByDates(custNum, formatStartDate, formatEndDate,2);
-        this.getHistoryCustomer(requestBody);
+      let formatStartDate = data.start.toISOString().split('T')[0];
+      let formatEndDate = data.end.toISOString().split('T')[0];
+      let requestBody = new RequestBodyGetHistoryByDates(
+        custNum,
+        formatStartDate,
+        formatEndDate,
+        data.order
+      );
+      this.getHistoryCustomer(requestBody);
     });
   }
-
 }

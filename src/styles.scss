@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-infix {
+    padding-bottom: 0.25em;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-flex {
+    padding: 0.25em 0.25em 0 0.25em !important;
+}
+
+.mat-form-field-underline {
+    bottom: unset !important;
+}
+
+.mat-form-field-wrapper {
+    padding-bottom: 0.75em !important;
+}
+
+.mat-select {
+    font-size: 0.75em !important;
+}
+
+.mat-hint {
+    position: relative;
+    top: 0.20em;
+}

@@ -24,7 +24,7 @@ export class LoginPageComponent implements OnInit {
       this.loginService.login(this.form.value).subscribe((response) => {
         if (response.data) {
           this.loginService.setCustomer(response.data[0].idCustomer, response.data[0].custNum);
-          this.router.navigate(['/products']);
+          this.router.navigate(['/customer/profile']);
         } else {
           this.error = 'Invalid Credentials';
         }

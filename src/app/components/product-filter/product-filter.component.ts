@@ -1,5 +1,13 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
-import { Brand, Country, Producer, pType, Region, Variety } from 'src/app/model/product';
+import { ActivatedRoute, Router } from '@angular/router';
+import {
+  Brand,
+  Country,
+  Producer,
+  pType,
+  Region,
+  Variety,
+} from 'src/app/model/product';
 import { RequestBodyProduct } from 'src/app/model/requestBodyProduct';
 import { ResponseBody } from 'src/app/model/responseBody';
 import { FilterService } from 'src/app/service/filter.service';
@@ -10,7 +18,6 @@ import { FilterService } from 'src/app/service/filter.service';
   styleUrls: ['./product-filter.component.css'],
 })
 export class ProductFilterComponent implements OnInit {
-
   filterText!: string;
   selectedBrandId: string = '0';
   selectedCountryId: string = '0';
@@ -19,12 +26,12 @@ export class ProductFilterComponent implements OnInit {
   selectedTypeId: string = '0';
   selectedVarietyId: string = '0';
   rating: boolean = false;
-  vegan : boolean = false;
+  vegan: boolean = false;
   bioDinamic: boolean = false;
-  organic : boolean = false;
-  sostenible : boolean = false;
-  noSulfitos : boolean = false;
-  noGenetico : boolean = false;
+  organic: boolean = false;
+  sostenible: boolean = false;
+  noSulfitos: boolean = false;
+  noGenetico: boolean = false;
 
   brands: Brand[] = [];
   countries: Country[] = [];
@@ -34,7 +41,11 @@ export class ProductFilterComponent implements OnInit {
   regions: Region[] = [];
   @Input() prodClass!: number;
 
-  constructor(private filterService: FilterService) {}
+  constructor(
+    private filterService: FilterService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   getBrands(): void {
     this.filterService.getBrands().subscribe((response: ResponseBody) => {
@@ -79,7 +90,6 @@ export class ProductFilterComponent implements OnInit {
   }
 
   filterBySelects(isCountry: boolean) {
-
     if (isCountry) {
       this.selectedRegion = 'string';
     }
@@ -99,6 +109,7 @@ export class ProductFilterComponent implements OnInit {
       this.noSulfitos,
       this.noGenetico
     );
+    this.changeRoute(data);
     this.filterService.broadcast(data);
   }
 
@@ -129,10 +140,55 @@ export class ProductFilterComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    setTimeout(() => {
+      this.getFilters();
+    });
     this.getBrands();
     this.getCountries();
     this.getProducers();
     this.getTypes();
     this.getVarieties();
   }
+
+  private changeRoute = (data: RequestBodyProduct) => {
+    this.router.navigate(
+      [
+        {
+          filter: JSON.stringify(data),
+        },
+      ],
+      {
+        relativeTo: this.route,
+        replaceUrl: true,
+      }
+    );
+  };
+
+  private getFilters = () => {
+    const filters = this.route.snapshot.paramMap.get('filter');
+    if (filters) {
+      const data = JSON.parse(filters) as RequestBodyProduct;
+
+      this.setFiltersFromRoute(data);
+
+      this.filterService.broadcast(data);
+    }
+  };
+
+  private setFiltersFromRoute = (data: RequestBodyProduct) => {
+    console.log(data);
+    this.selectedCountryId = data.country as any || this.selectedCountryId;
+    this.selectedTypeId = data.prodType as any|| this.selectedTypeId;
+    this.selectedVarietyId = data.prodVariety as any|| this.selectedVarietyId;
+    this.selectedProducerId = data.producer as any|| this.selectedProducerId;
+    this.selectedBrandId = data.prodBrand as any|| this.selectedBrandId;
+    this.selectedRegion = data.region;
+    this.rating = data.rating;
+    this.vegan = data.vegan;
+    this.bioDinamic = data.bioDinamic;
+    this.organic = data.organic;
+    this.sostenible = data.sostenible;
+    this.noSulfitos = data.noSulfitos;
+    this.noGenetico = data.noGenetico;
+  };
 }

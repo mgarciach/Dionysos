@@ -1,14 +1,53 @@
-<mat-form-field class="example-form-field" appearance="fill">
-  <mat-label>Enter a date range</mat-label>
-  <mat-date-range-input
-    [formGroup]="form"
-    [rangePicker]="formPicker"
-    [comparisonStart]="form.value.start"
-    [comparisonEnd]="form.value.end">
-    <input matStartDate placeholder="Start date" formControlName="start">
-    <input matEndDate placeholder="End date" formControlName="end">
-  </mat-date-range-input>
-  <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
-  <mat-datepicker-toggle matSuffix [for]="formPicker"></mat-datepicker-toggle>
-  <mat-date-range-picker #formPicker (closed)="filterByDates()"></mat-date-range-picker>
-</mat-form-field>
+<div fxLayout="column">
+  <mat-form-field
+    class="example-form-field"
+    appearance="fill">
+    <mat-label>Enter a date range</mat-label>
+    <mat-date-range-input
+      [formGroup]="form"
+      [rangePicker]="formPicker"
+      [comparisonStart]="form.value.start"
+      [comparisonEnd]="form.value.end">
+      <input
+        matStartDate
+        placeholder="Start date"
+        formControlName="start">
+      <input
+        matEndDate
+        placeholder="End date"
+        formControlName="end">
+    </mat-date-range-input>
+    <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle
+      matSuffix
+      [for]="formPicker"></mat-datepicker-toggle>
+    <mat-date-range-picker
+      #formPicker
+      (closed)="filterByDates()"></mat-date-range-picker>
+  </mat-form-field>
+
+  <ng-container [formGroup]="form">
+
+    <label id="example-radio-group-label">Order by</label>
+    <mat-radio-group
+      aria-labelledby="example-radio-group-label"
+      class="example-radio-group"
+      formControlName="order">
+      <mat-radio-button
+        class="example-radio-button"
+        [value]="1">
+        Date, Brand, Type
+      </mat-radio-button>
+      <mat-radio-button
+        class="example-radio-button"
+        [value]="2">
+        Type, date, brand
+      </mat-radio-button>
+      <mat-radio-button
+        class="example-radio-button"
+        [value]="3">
+        Brandm date, type
+      </mat-radio-button>
+    </mat-radio-group>
+  </ng-container>
+</div>

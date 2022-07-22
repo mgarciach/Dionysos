@@ -23,6 +23,7 @@ export interface CustomerProfile {
     idCity: number,
     idType: number,
     idState: number
+    empemail: string;
 }
 export interface CustomerHistory {
     idCustomer: number,
