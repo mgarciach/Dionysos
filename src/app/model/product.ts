@@ -13,13 +13,14 @@ export interface Product {
     imagen: string,
     filtro: string,
     visibility: string,
-    webSite:string
+    webProduct:string
 }
 
 export interface ProductDetails {
   prodMemo: string,
   memo:string,
   brandPic: string,
+  webSite: string
 }
 
 export interface Brand {

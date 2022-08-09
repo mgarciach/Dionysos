@@ -12,28 +12,28 @@ export class ProductPageComponent implements OnInit {
 
   prodClass!: number;
 
-  subPagesProduct: SubPage []= [{
+  subPagesProduct: SubPage[] = [{
     name: 'Wine',
     id: 4,
   }, {
     name: 'Liquor',
     id: 1,
-  },{
+  }, {
     name: 'Beer',
     id: 2,
-  },{
+  }, {
     name: 'Foods',
     id: 3,
   }];
 
-  parentFilterSelects!:RequestBodyProduct;
-  parentFilterText!:string;
+  parentFilterSelects!: RequestBodyProduct;
+  parentFilterText!: string;
 
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(param => {
-      this.prodClass = param['prodClass'];
+      this.prodClass = param['prodClass'] == 0 ? 4 : param['prodClass'];
     })
   }
 

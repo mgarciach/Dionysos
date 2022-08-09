@@ -15,6 +15,7 @@ export class SectionComponent implements OnInit {
   idCustomer!: number;
   subscription: Subscription;
   subPageName: string = "Home";
+  subPageId: number = null!;
 
   @Output() cleanFiltersEvent = new EventEmitter();
 
@@ -22,22 +23,24 @@ export class SectionComponent implements OnInit {
   @Input() subPages!: SubPage[];
   @Input() isCustomerPage!: boolean;
   @Input() content!: TemplateRef<any>;
+  @Input() defaultSelectedId!: number;
 
   constructor(private loginService: LoginService) {
     this.subscription = this.loginService.newIdCustomer$.subscribe((idCustomer) => {
-      console.log(typeof idCustomer === 'number');
       if (typeof idCustomer === 'number') {
         this.idCustomer = idCustomer;
       }
     });
   }
 
-  changeSubPage(subPageName: string, cleanFilter?: boolean) {
+  changeSubPage(subPage: SubPage, cleanFilter?: boolean) {
     if (cleanFilter) this.cleanFiltersEvent.emit(null);
-    this.subPageName = subPageName;
+    this.subPageName = subPage.name;
+    this.subPageId = subPage.id!;
   }
 
   ngOnInit(): void {
+    this.subPageId = this.defaultSelectedId || 1;
   }
 
   ngOnDestroy() {

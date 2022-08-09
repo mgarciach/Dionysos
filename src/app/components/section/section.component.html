@@ -14,7 +14,7 @@
       <mat-chip-list *ngFor="let subPage of subPages">
         <mat-chip
           [routerLink]="[subPage.url]"
-          (click)="changeSubPage(subPage.name)">
+          (click)="changeSubPage(subPage)">
           {{subPage.name}}
         </mat-chip>
       </mat-chip-list>
@@ -26,8 +26,9 @@
       class="listChip">
       <mat-chip-list *ngFor="let subPage of subPages">
         <mat-chip
+          [ngClass]="{'chip-active': subPage.id==subPageId}"
           [routerLink]="['/product', subPage.id]"
-          (click)="changeSubPage(subPage.name,true)">
+          (click)="changeSubPage(subPage,true)">
           {{subPage.name}}
         </mat-chip>
       </mat-chip-list>

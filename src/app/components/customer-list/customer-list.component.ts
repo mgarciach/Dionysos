@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Customer } from 'src/app/model/customer';
 import { RequestBodyCustomer } from 'src/app/model/requestBodyCustomer';
 import { ResponseBody } from 'src/app/model/responseBody';
@@ -15,8 +16,9 @@ export class CustomerListComponent implements OnInit {
 
   constructor(
     private customerService: CustomerService,
-    private filterService: FilterService
-  ) {}
+    private filterService: FilterService,
+    private route: ActivatedRoute
+  ) { }
 
   getCustomers(requestBody: RequestBodyCustomer): void {
     this.customerService
@@ -27,7 +29,10 @@ export class CustomerListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let requestBody: RequestBodyCustomer = new RequestBodyCustomer(0, 0, 0);
+
+    const prodCode = this.route.snapshot.queryParamMap.get('prodCode') || null!;
+
+    let requestBody: RequestBodyCustomer = new RequestBodyCustomer(0, 0, 0, prodCode);
     this.getCustomers(requestBody);
 
     //cambio de filtro

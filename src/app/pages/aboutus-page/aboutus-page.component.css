@@ -17,3 +17,7 @@ mat-card-subtitle p {
 mat-card-subtitle p span{
     font-weight: bold;
 }
+
+.img-logo {
+    height: 240px;
+}

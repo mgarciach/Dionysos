@@ -24,3 +24,7 @@ h1, h3 {
 .listChip{
     margin: 0 auto;
 }
+
+.chip-active {
+    background-color: #8d8d8d;
+}

@@ -12,7 +12,7 @@
     <img
       mat-card-xl-image
       src="{{product?.imagen}}">
-    <mat-card-title-group>
+    <mat-card-title-group *ngIf="product">
       <mat-card-title>{{ product?.prodName }}</mat-card-title>
       <mat-card-subtitle class="subtittle">{{ product?.brand }}</mat-card-subtitle>
       <mat-card-subtitle class="content">
@@ -41,9 +41,11 @@
       </mat-card-subtitle>
       <mat-card-subtitle class="content">
         <span class="space">Website </span>
-        {{ product?.webSite }}
+        {{ product?.webProduct }}
       </mat-card-subtitle>
-      <mat-card-subtitle class="text">
+      <mat-card-subtitle
+        class="text"
+        *ngIf="productDetails[0]">
         <p>{{productDetails[0].prodMemo}}</p>
       </mat-card-subtitle>
     </mat-card-title-group>
@@ -51,20 +53,28 @@
   <mat-card class="brand">
     <mat-card-title>About the Producer</mat-card-title>
     <img
+      *ngIf="productDetails[0]"
       class="imgBrand"
       mat-card-image
       src="{{productDetails[0].brandPic}}"
       alt="Photo of a Shiba Inu">
     <mat-card-content>
-      <p *ngFor="let productDetail of productDetails">{{productDetail.memo}}</p>
+      <ng-container *ngFor="let productDetail of productDetails">
+        <p>{{productDetail.memo}}</p>
+
+        <p><span class="space">Website</span> {{productDetail.webSite}}</p>
+      </ng-container>
     </mat-card-content>
+
+    <h3
+      class="button-where-can-i-get-it"
+      (click)="goToCustomers()">Where can I get it?</h3>
   </mat-card>
 </div>
-
-<div
+<!-- <div
   fxLayout="row wrap"
   fxLayoutAlign="center flex-start">
   <app-customer-item
     *ngFor="let customer of customers"
     [customer]="customer"></app-customer-item>
-</div>
+</div> -->
