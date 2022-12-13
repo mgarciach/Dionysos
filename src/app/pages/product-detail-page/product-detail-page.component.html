@@ -41,7 +41,12 @@
       </mat-card-subtitle>
       <mat-card-subtitle class="content">
         <span class="space">Website </span>
-        {{ product?.webProduct }}
+        <a
+          [href]="product?.webProduct"
+          target="_blank"
+          rel="noopener noreferrer">
+          {{ product?.webProduct }}
+        </a>
       </mat-card-subtitle>
       <mat-card-subtitle
         class="text"
@@ -59,10 +64,14 @@
       src="{{productDetails[0].brandPic}}"
       alt="Photo of a Shiba Inu">
     <mat-card-content>
-      <ng-container *ngFor="let productDetail of productDetails">
-        <p>{{productDetail.memo}}</p>
+      <ng-container *ngIf="productDetails[0]">
+        <p>{{productDetails[0].memo}}</p>
 
-        <p><span class="space">Website</span> {{productDetail.webSite}}</p>
+        <p><span class="space">Website</span> <a
+            [href]="productDetails[0].webSite"
+            target="_blank">
+            {{productDetails[0].webSite}}
+          </a></p>
       </ng-container>
     </mat-card-content>
 

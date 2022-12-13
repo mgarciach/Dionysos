@@ -48,12 +48,7 @@
               ],
               "assets": [
                 "src/favicon.ico",
-                "src/assets",
-                {
-                  "glob": "Web.config",
-                  "input": "src/configs",
-                  "output": "./"
-                }
+                "src/assets"
               ],
               "outputHashing": "all"
             },
